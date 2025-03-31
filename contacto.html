@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Halo Universe</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #1b1b1b;
+            text-align: center;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #ffd700;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-top: 5px;
+            background-color: #333;
+            color: white;
+        }
+        button {
+            background-color: #006400;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #ffd700;
+            color: black;
+        }
+        .btn-regresar {
+            background-color: #444;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .btn-regresar:hover {
+            background-color: #ffd700;
+            color: black;
+        }
+        footer {
+            background-color: #1b1b1b;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            color: #66fcf1;
+        }
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📧 Contacto - Halo Universe 🚀</h1>
+    </header>
+    
+    <div class="container">
+        <h2>Envíanos un mensaje</h2>
+        <form action="enviar.php" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="asunto">Asunto:</label>
+            <select id="asunto" name="asunto">
+                <option value="soporte">Soporte Técnico</option>
+                <option value="sugerencias">Sugerencias</option>
+                <option value="otros">Otros</option>
+            </select>
+            
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </div>
+    
+    <div class="contact-info">
+        <h3>Otras formas de contacto:</h3>
+        <p>📧 Email: <a href="mailto:contacto@halouniverse.com">contacto@halouniverse.com</a></p>
+        <p>🌐 Sitio web oficial: <a href="https://halo.fandom.com/es/wiki/Categor%C3%ADa:Foro" target="_blank">Foro de Halo</a></p>
+    </div>
+    
+    <button class="btn-regresar" onclick="window.location.href='index.html';">Regresar al Menú</button>
+    
+    <footer>
+        <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+

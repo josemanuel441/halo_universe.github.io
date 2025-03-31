@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Meta para compatibilidad móvil -->
+    <title>Halo Universe</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon -->
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3 {
+            color: #ffd700; /* Dorado tipo Halo */
+        }
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+            color: black;
+            transition: color 0.3s;
+        }
+       
+    nav a {
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+        color: white; /* Cambio aquí: letras blancas */
+        transition: color 0.3s;
+    }
+    nav a:hover {
+        color: #66fcf1; /* Azul claro tipo Forerunner */
+    }
+        footer {
+            background-color: #1b1b1b;
+            padding: 10px;
+            color: #66fcf1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ffd700;
+            text-align: center;
+        }
+        th {
+            background-color: #006400;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #333;
+        }
+        tr:nth-child(odd) {
+            background-color: #444;
+        }
+        .img-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .img-container img {
+            width: 100%;  /* Asegura que la imagen sea responsiva */
+            max-width: 500px; /* Limita el tamaño máximo de la imagen */
+            height: auto;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            nav a {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            nav a {
+                font-size: 12px;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ MEJORADO -->
+    <header>
+        <h1 style="text-align: center; padding: 20px; background-color: black;">
+            🚀🔥 HALO UNIVERSE 🔥🚀
+        </h1>
+        <nav>
+            <!-- Tabla de navegación con enlaces -->
+            <table>
+                <tr align="center" bgcolor="#ffd700">
+                    <td><a href="index.html">🏠 Inicio</a></td>
+                    <td><a href="historia.html">📜 Historia</a></td>
+                    <td><a href="juegos.html">🎮 Juegos</a></td>
+                </tr>
+                <tr align="center" bgcolor="#006400">
+                    <td><a href="guias.html">📖 Guías</a></td>
+                    <td><a href="comunidad.html">🌎 Comunidad</a></td>
+                    <td><a href="contacto.html">✉️ Contacto</a></td>
+                </tr>
+                <tr align="center" bgcolor="#1b1b1b">
+                    <td><a href="mapa.html">🗺️ Mapa</a></td>
+                    <td><a href="multimedia.html">Multimedia</a></td>
+                  
+                </tr>
+            </table>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN DE BIENVENIDA -->
+    <main>
+        <h2 style="text-align: center; color: #ffd700;">Bienvenido a Halo Universe</h2>
+        <p style="text-align: center;">
+            🌟 Explora la historia, juegos y estrategias de la legendaria saga de Halo. 🌟
+        </p>
+
+        <!-- Imagen de la saga Halo -->
+        <div class="img-container">
+            <img src="halo.jpeg" alt="Imagen de Halo">
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p style="text-align: center;">&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

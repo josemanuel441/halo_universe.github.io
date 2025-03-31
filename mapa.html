@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa - Halo Universe</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #ffd700;
+        }
+        #map {
+            height: 500px;
+            width: 80%;
+            margin: auto;
+            border: 2px solid #ffd700;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #006400;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #66fcf1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🌍 Nuestras Sucursales - Halo Universe</h1>
+    <p>Encuentra tu tienda más cercana y equípate con lo mejor del universo de Halo.</p>
+
+    <div id="map"></div>
+
+    <a href="index.html" class="back-button">🏠 Regresar a Inicio</a>
+
+    <script>
+        var map = L.map('map').setView([21.8853, -102.2916], 12);
+
+        // Agregar capa de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Sucursales temáticas de Halo Universe
+        var sucursales = [
+            { lat: 21.9278, lng: -102.296, nombre: "Halo Universe - Base Central" },
+            { lat: 21.8579, lng: -102.303, nombre: "Halo Universe - Sucursal Reach" },
+            { lat: 21.9452, lng: -102.319, nombre: "Halo Universe - Tienda Infinita" },
+            { lat: 21.8900, lng: -102.298, nombre: "Halo Universe - Fortaleza Spartan" },
+            { lat: 21.865, lng: -102.215, nombre: "Halo Universe - Calvillito Outpost" }
+        ];
+
+        sucursales.forEach(function (sucursal) {
+            var marker = L.marker([sucursal.lat, sucursal.lng]).addTo(map)
+                .bindPopup(`<strong>${sucursal.nombre}</strong><br>Encuentra los mejores productos de Halo aquí.`);
+        });
+    </script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad - Halo Universe</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 {
+            color: #ffd700; /* Dorado tipo Halo */
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        footer {
+            background-color: #1b1b1b;
+            padding: 20px;
+            color: #66fcf1;
+            text-align: center;
+            font-size: 14px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .btn-regresar {
+            background-color: #006400;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-regresar:hover {
+            background-color: #ffd700;
+            color: black;
+        }
+
+        /* Contenedor Principal */
+        .contenido {
+            text-align: center;
+            margin: 20px;
+            padding-bottom: 100px;
+            background: url('halo_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            padding: 50px 20px;
+            border-radius: 15px;
+        }
+
+        .comunidad-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin-top: 40px;
+        }
+
+        .comunidad-item {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 30px;
+            width: 90%;
+            max-width: 350px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .comunidad-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .comunidad-item h3 {
+            color: #ffd700;
+        }
+
+        .comunidad-item p {
+            font-size: 14px;
+        }
+
+        /* Estilo para enlaces */
+        .comunidad-item a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .comunidad-item a:hover {
+            color: #66fcf1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ MEJORADO (Sin enlaces a otras páginas) -->
+    <header>
+        <h1 style="text-align: center; padding: 20px; background-color: #121212;">
+            🚀🔥 HALO UNIVERSE 🔥🚀
+        </h1>
+    </header>
+
+    <!-- SECCIÓN DE COMUNIDAD -->
+    <main class="contenido">
+        <h2>Comunidad Halo Universe</h2>
+        <p>Únete a la comunidad de fanáticos de Halo y mantente conectado con las últimas novedades, discusiones, y eventos del universo Halo.</p>
+
+        <h3>Recursos de la Comunidad</h3>
+        <div class="comunidad-container">
+            <div class="comunidad-item">
+                <h3>Foro Oficial de Halo</h3>
+                <p>Únete al foro donde los jugadores de todo el mundo comparten sus experiencias y discuten sobre la saga Halo.</p>
+                <a href="https://www.halowaypoint.com" target="_blank">Visitar Foro</a>
+            </div>
+            <div class="comunidad-item">
+                <h3>Redes Sociales</h3>
+                <p>Sigue a Halo en sus redes sociales para mantenerte al día con las últimas noticias y eventos.</p>
+                <a href="https://www.twitter.com/Halo" target="_blank">Twitter</a><br>
+                <a href="https://www.instagram.com/halo" target="_blank">Instagram</a>
+            </div>
+            <div class="comunidad-item">
+                <h3>Eventos y Torneos</h3>
+                <p>Participa en eventos y torneos organizados por la comunidad Halo. ¡Compite con otros fanáticos de todo el mundo!</p>
+              <a href="https://halo.fandom.com/es/wiki/Categor%C3%ADa:Foro" target="_blank">Ver Eventos y Torneos</a>
+            </div>
+        </div>
+
+        <!-- Botón para regresar al inicio -->
+        <a href="index.html" class="btn-regresar">Regresar al Inicio</a>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

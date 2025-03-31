@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia - Halo Universe</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 {
+            color: #ffd700; /* Dorado tipo Halo */
+            text-align: center;
+        }
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #ffd700;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            background-color: #66fcf1;
+            color: white;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #ffd700;
+        }
+        .videos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        iframe {
+            border-radius: 10px;
+            border: 3px solid #ffd700;
+        }
+        @media (max-width: 600px) {
+            .gallery img {
+                width: 100%;
+                max-width: 90%;
+            }
+            iframe {
+                width: 100%;
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TÍTULO Y MENÚ -->
+    <header>
+        <h1>Multimedia de Halo Universe</h1>
+    </header>
+
+    <main>
+        <h2>¡Explora el contenido multimedia de la saga Halo!</h2>
+
+        <!-- Galería de imágenes -->
+        <div class="gallery">
+            <img src="halo1.jpg" alt="Imagen de Halo 1">
+            <img src="halo2.jpg" alt="Imagen de Halo 2">
+            <img src="halo3.jpg" alt="Imagen de Halo 3">
+            <img src="halo4.jpg" alt="Imagen de Halo 4">
+            <img src="halo1.gif" alt="GIF de Halo 1">
+            <img src="halo2.gif" alt="GIF de Halo 2">
+            <img src="halo3.gif" alt="GIF de Halo 3">
+            <img src="halo4.gif" alt="GIF de Halo 4">
+        </div>
+
+        <!-- Sección de Videos -->
+        <div class="videos">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xViNwdpoORA" title="Video de Halo 1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/yBmg1RBnH1M" title="Video de Halo 2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uMU0ouR6NFw" title="Video de Halo 3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/155EC_WG9Vk" title="Video de Halo 4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/SeOOwKr_6eI" title="Video de Halo 5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/crT8ITB44_U" title="Video de Halo 6" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ReRsMc-SIlQ" title="Video de Halo 7" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!-- Botón para regresar a inicio -->
+        <a href="index.html" class="back-button">Regresar a Inicio</a>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p style="text-align: center;">&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
