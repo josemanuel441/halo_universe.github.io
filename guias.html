@@ -3,139 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía para Principiantes - Halo Universe</title>
+    <title>Guía de Halo - Principiantes</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
-            background-color: black;
-            color: white;
             font-family: Arial, sans-serif;
+            color: white;
+            background-color: black;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
         h1, h2, h3 {
-            color: #ffd700; /* Dorado tipo Halo */
+            color: #FFD700; /* Color dorado para títulos */
+        }
+        p, ul, ol, dl {
+            margin: 15px;
+            line-height: 1.6;
         }
         footer {
             background-color: #1b1b1b;
-            padding: 10px;
+            padding: 20px;
             color: #66fcf1;
-            position: relative;
-            bottom: 0;
-            width: 100%;
             text-align: center;
         }
-        .btn-regresar {
+        .img-container {
+            text-align: center;
+        }
+        .img-container img {
+            border: 2px solid #FFD700;
+            margin-top: 20px;
+        }
+        .btn {
             background-color: #006400;
             color: white;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
             margin-top: 20px;
             display: block;
-            margin: 20px auto; /* Centra el botón */
+            margin: 0 auto;
         }
-        .btn-regresar:hover {
+        .btn:hover {
             background-color: #ffd700;
             color: black;
         }
-        .contenido {
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #fff;
+            padding: 10px;
             text-align: center;
-            margin: 20px;
-            padding-bottom: 100px; /* Asegura que haya espacio suficiente al final */
         }
-        ul, ol {
-            text-align: left;
-            padding-left: 40px;
+        th {
+            background-color: #333;
         }
-        img {
-            max-width: 100%; /* Asegura que la imagen no se salga de su contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
-            margin-top: 20px;
-            border-radius: 10px;
-        }
-        @media screen and (max-width: 768px) {
-            .contenido {
-                margin: 10px;
-            }
-            h1 {
-                font-size: 1.5em;
-            }
-            h2 {
-                font-size: 1.2em;
-            }
-            .btn-regresar {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
+        .important {
+            color: #ff6347; /* Color para resaltar textos importantes */
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ MEJORADO -->
+    <!-- Encabezado -->
     <header>
-        <h1 style="text-align: center; padding: 20px; background-color: black;">
-            🚀🔥 HALO UNIVERSE 🔥🚀
-        </h1>
+        <h1>Bienvenido a la Guía para Principiantes de Halo</h1>
     </header>
 
-    <!-- SECCIÓN DE GUÍA PARA PRINCIPIANTES -->
-    <main class="contenido">
-        <h2>Guía para Principiantes - Halo Universe</h2>
-        <p>¡Bienvenido a la Guía para Principiantes de Halo! Aquí aprenderás lo básico para iniciarte en este universo épico de ciencia ficción.</p>
-        
-        <h3>1. Conoce al Jefe Maestro</h3>
-        <p>El <strong>Jefe Maestro</strong> es el protagonista principal de la saga Halo. Es un supersoldado conocido como Spartan, cuya misión es proteger a la humanidad de amenazas alienígenas como el Covenant y los Flood.</p>
-        
-        <img src="jefe_maestro.jpg" alt="Jefe Maestro" height="400" width="300">
+    <!-- Sección principal -->
+    <main>
+        <section>
+            <h2>1. Conociendo al Jefe Maestro</h2>
+            <p>El <strong>Jefe Maestro</strong> es el protagonista principal de la saga Halo. Es un supersoldado conocido como Spartan.</p>
+            <div class="img-container">
+                <img src="jefe_maestro.jpg" alt="Imagen del Jefe Maestro" width="300" height="400">
+            </div>
 
-        <h3>2. Entender el Combate</h3>
-        <p>Halo es un juego de disparos en primera persona (FPS) con una jugabilidad dinámica. Aquí te ofrecemos algunos consejos para sobrevivir en el combate:</p>
-        <ul>
-            <li><strong>Apunta a la cabeza:</strong> Es la forma más rápida de eliminar enemigos.</li>
-            <li><strong>Usa las coberturas:</strong> No te quedes expuesto, utiliza paredes y estructuras para protegerte.</li>
-            <li><strong>Mejores armas:</strong> Conoce bien las armas, la pistola de plasma, el rifle de asalto y el lanzacohetes son ideales para diferentes situaciones.</li>
-        </ul>
+            <!-- Listas -->
+            <h3>Consejos Básicos de Combate</h3>
+            <ul>
+                <li><strong>Apunta a la cabeza:</strong> Es la forma más eficiente de derrotar a tus enemigos.</li>
+                <li><strong>Usa las coberturas:</strong> Mantente a salvo detrás de objetos para evitar ser alcanzado.</li>
+                <li><strong>Elige bien las armas:</strong> Diferentes enemigos requieren diferentes estrategias y armas.</li>
+            </ul>
 
-        <h3>3. Conociendo el Multijugador</h3>
-        <p>El multijugador de Halo es famoso por su competitividad. Aquí algunos consejos para comenzar:</p>
-        <ol>
-            <li><strong>Domina el mapa:</strong> Conoce los puntos clave de cada mapa, como el lugar de las armas más poderosas.</li>
-            <li><strong>Trabaja en equipo:</strong> El multijugador en Halo no es solo un juego individual, ¡un buen equipo puede ganar la partida!</li>
-        </ol>
+            <h3>Tipos de Enemigos</h3>
+            <ol>
+                <li><strong>Covenant:</strong> Una raza alienígena que lucha contra los humanos.</li>
+                <li><strong>Flood:</strong> Un parásito alienígena capaz de infectar seres vivos.</li>
+            </ol>
+        </section>
 
-        <h3>4. Consejos Generales</h3>
-        <dl>
-            <dt>Juega la campaña</dt>
-            <dd>Antes de lanzarte al multijugador, es recomendable que completes la campaña para familiarizarte con la historia y las mecánicas del juego.</dd>
-            <dt>Usa el sigilo</dt>
-            <dd>A veces, pasar desapercibido puede ser más beneficioso que ir directamente al ataque.</dd>
-        </dl>
+        <!-- Definiciones -->
+        <section>
+            <h3>Conceptos Importantes</h3>
+            <dl>
+                <dt><abbr title="Intergalactic Space Force">ISF</abbr></dt>
+                <dd>Fuerza espacial intergaláctica, que es la fuerza de defensa principal de la humanidad.</dd>
+                <dt><dfn>Halo</dfn></dt>
+                <dd>Un conjunto de enormes anillos que tienen el poder de destruir toda la vida en la galaxia.</dd>
+            </dl>
+        </section>
 
-        <!-- Enlace a otro sitio -->
-        <p>Visita <a href="https://www.halowaypoint.com" target="_blank">Halo Waypoint</a> para más información.</p>
+        <!-- Citas -->
+        <section>
+            <blockquote>
+                "La guerra no termina hasta que nosotros lo decidamos." - <cite>El Jefe Maestro</cite>
+            </blockquote>
+        </section>
 
-        <!-- Formulario de Registro -->
-        <h3>Formulario de Registro</h3>
-        <form action="/submit" method="POST">
-            <label for="username">Nombre de usuario:</label><br>
-            <input type="text" id="username" name="username" required><br>
-            <label for="email">Correo electrónico:</label><br>
-            <input type="email" id="email" name="email" required><br>
-            <input type="submit" value="Registrarse">
-        </form>
+        <!-- Tabla -->
+        <section>
+            <h3>Estadísticas de Armas</h3>
+            <table>
+                <caption>Estadísticas de las armas más populares</caption>
+                <thead>
+                    <tr>
+                        <th>Arma</th>
+                        <th>Daño</th>
+                        <th>Rango</th>
+                        <th>Velocidad de Disparo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rifle de Asalto</td>
+                        <td>Media</td>
+                        <td>Corto-Medio</td>
+                        <td>Alta</td>
+                    </tr>
+                    <tr>
+                        <td>Sniper</td>
+                        <td>Alta</td>
+                        <td>Largo</td>
+                        <td>Baja</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <!-- Botón para regresar al inicio -->
-        <button class="btn-regresar" onclick="window.location.href='index.html';">Regresar al Inicio</button>
+        <!-- Enlaces -->
+        <section>
+            <h3>Enlaces Útiles</h3>
+            <ul>
+                <li><a href="https://www.halowaypoint.com" target="_blank">Visitar Halo Waypoint</a></li>
+                <li><a href="mailto:josemanuelesparzavaldez867@gmail.com">Enviar un correo</a></li>
+                <li><a href="ftp://ftp.halouniverse.com" target="_blank">Acceder al archivo FTP</a></li>
+                <li><a href="#top">Regresar al inicio</a></li>
+            </ul>
+        </section>
+
+        <!-- Mapa de imagen -->
+        <section>
+            <h3>Mapa de Imagen Interactivo</h3>
+            <img src="mapa.jpg" alt="Mapa de Halo" usemap="#mapa" width="600" height="400">
+            <map name="mapa">
+                <area shape="rect" coords="34,44,270,350" href="zona1.html" alt="Zona 1" />
+                <area shape="circle" coords="500,200,50" href="zona2.html" alt="Zona 2" />
+            </map>
+        </section>
+
     </main>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
-        <p>Contacto por correo: <a href="mailto:josemanuelesparzavaldez867@gmail.com">josemanuelesparzavaldez867@gmail.com</a></p>
-        <a href="#top">Volver al inicio</a>
+        <p>Contacto: <a href="mailto:josemanuelesparzavaldez867@gmail.com">josemanuelesparzavaldez867@gmail.com</a></p>
     </footer>
 
 </body>
