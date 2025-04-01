@@ -104,17 +104,13 @@
     
     <div class="container">
         <h2>Envíanos un mensaje</h2>
-        <!-- Formulario de contacto -->
-        <form action="enviar.php" method="post" enctype="multipart/form-data">
-            <!-- Campo de texto para el nombre -->
+        <form action="enviar.php" method="post">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required size="30" maxlength="50">
+            <input type="text" id="nombre" name="nombre" required>
             
-            <!-- Campo de texto para el correo electrónico -->
             <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required size="30" maxlength="100">
+            <input type="email" id="email" name="email" required>
             
-            <!-- Menú desplegable para el asunto -->
             <label for="asunto">Asunto:</label>
             <select id="asunto" name="asunto">
                 <option value="soporte">Soporte Técnico</option>
@@ -122,45 +118,19 @@
                 <option value="otros">Otros</option>
             </select>
             
-            <!-- Área de texto para el mensaje -->
             <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="5" required maxlength="500"></textarea>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
             
-            <!-- Checkbox para aceptar términos -->
-            <label for="terminos">Aceptar términos y condiciones:</label>
-            <input type="checkbox" id="terminos" name="terminos" required checked>
-            
-            <!-- Botón para enviar el mensaje -->
             <button type="submit">Enviar Mensaje</button>
         </form>
     </div>
-
-    <!-- Sección con enlaces y objetos -->
-    <div class="container">
-        <h3>Ver Video del Universo Halo:</h3>
-        <!-- Objeto con classid -->
-        <object data="halo_video.mp4" type="video/mp4" width="600" height="400" classid="clsid:12345678-1234-1234-1234-123456789abc">
-            <param name="autoplay" value="true">
-        </object>
-    </div>
-
-    <div class="container">
-        <h3>Ver Trailer de Halo:</h3>
-        <!-- Objeto embed con atributos -->
-        <embed src="halo_trailer.mp4" type="video/mp4" width="600" height="400">
-    </div>
-
+    
     <div class="contact-info">
         <h3>Otras formas de contacto:</h3>
         <p>📧 Email: <a href="mailto:contacto@halouniverse.com">contacto@halouniverse.com</a></p>
         <p>🌐 Sitio web oficial: <a href="https://halo.fandom.com/es/wiki/Categor%C3%ADa:Foro" target="_blank">Foro de Halo</a></p>
     </div>
-
-    <div class="contact-info">
-        <p>Enlace a una FTP: <a href="ftp://ftp.halo.com">Halo FTP</a></p>
-    </div>
     
-    <!-- Botón para regresar al menú -->
     <button class="btn-regresar" onclick="window.location.href='index.html';">Regresar al Menú</button>
     
     <footer>
