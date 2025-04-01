@@ -45,7 +45,7 @@
             margin: 20px;
             padding-bottom: 100px; /* Asegura que haya espacio suficiente al final */
         }
-        ul {
+        ul, ol {
             text-align: left;
             padding-left: 40px;
         }
@@ -74,7 +74,7 @@
 </head>
 <body>
 
-    <!-- MENÚ MEJORADO (Sin enlaces a otras páginas) -->
+    <!-- MENÚ MEJORADO -->
     <header>
         <h1 style="text-align: center; padding: 20px; background-color: black;">
             🚀🔥 HALO UNIVERSE 🔥🚀
@@ -87,10 +87,9 @@
         <p>¡Bienvenido a la Guía para Principiantes de Halo! Aquí aprenderás lo básico para iniciarte en este universo épico de ciencia ficción.</p>
         
         <h3>1. Conoce al Jefe Maestro</h3>
-        <p>El Jefe Maestro es el protagonista principal de la saga Halo. Es un supersoldado conocido como Spartan, cuya misión es proteger a la humanidad de amenazas alienígenas como el Covenant y los Flood.</p>
-
-        <!-- Imagen para el Jefe Maestro -->
-        <img src="jefe_maestro.jpg" alt="Jefe Maestro">
+        <p>El <strong>Jefe Maestro</strong> es el protagonista principal de la saga Halo. Es un supersoldado conocido como Spartan, cuya misión es proteger a la humanidad de amenazas alienígenas como el Covenant y los Flood.</p>
+        
+        <img src="jefe_maestro.jpg" alt="Jefe Maestro" height="400" width="300">
 
         <h3>2. Entender el Combate</h3>
         <p>Halo es un juego de disparos en primera persona (FPS) con una jugabilidad dinámica. Aquí te ofrecemos algunos consejos para sobrevivir en el combate:</p>
@@ -102,16 +101,31 @@
 
         <h3>3. Conociendo el Multijugador</h3>
         <p>El multijugador de Halo es famoso por su competitividad. Aquí algunos consejos para comenzar:</p>
-        <ul>
+        <ol>
             <li><strong>Domina el mapa:</strong> Conoce los puntos clave de cada mapa, como el lugar de las armas más poderosas.</li>
             <li><strong>Trabaja en equipo:</strong> El multijugador en Halo no es solo un juego individual, ¡un buen equipo puede ganar la partida!</li>
-        </ul>
+        </ol>
 
         <h3>4. Consejos Generales</h3>
-        <ul>
-            <li><strong>Juega la campaña:</strong> Antes de lanzarte al multijugador, es recomendable que completes la campaña para familiarizarte con la historia y las mecánicas del juego.</li>
-            <li><strong>Usa el sigilo:</strong> A veces, pasar desapercibido puede ser más beneficioso que ir directamente al ataque.</li>
-        </ul>
+        <dl>
+            <dt>Juega la campaña</dt>
+            <dd>Antes de lanzarte al multijugador, es recomendable que completes la campaña para familiarizarte con la historia y las mecánicas del juego.</dd>
+            <dt>Usa el sigilo</dt>
+            <dd>A veces, pasar desapercibido puede ser más beneficioso que ir directamente al ataque.</dd>
+        </dl>
+
+        <!-- Enlace a otro sitio -->
+        <p>Visita <a href="https://www.halowaypoint.com" target="_blank">Halo Waypoint</a> para más información.</p>
+
+        <!-- Formulario de Registro -->
+        <h3>Formulario de Registro</h3>
+        <form action="/submit" method="POST">
+            <label for="username">Nombre de usuario:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="email">Correo electrónico:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <input type="submit" value="Registrarse">
+        </form>
 
         <!-- Botón para regresar al inicio -->
         <button class="btn-regresar" onclick="window.location.href='index.html';">Regresar al Inicio</button>
@@ -121,8 +135,8 @@
     <footer>
         <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
         <p>Contacto por correo: <a href="mailto:josemanuelesparzavaldez867@gmail.com">josemanuelesparzavaldez867@gmail.com</a></p>
+        <a href="#top">Volver al inicio</a>
     </footer>
 
 </body>
 </html>
-
