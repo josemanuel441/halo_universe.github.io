@@ -16,8 +16,34 @@
         }
 
         h1, h2, h3 {
-            color: #ffd700; /* Dorado tipo Halo */
             text-shadow: 2px 2px 5px #000;
+        }
+
+        h1 {
+            color: #00BFFF; /* Azul brillante */
+            font-size: 5em; /* Tamaño de fuente grande */
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #00BFFF, 0 0 40px #00BFFF;
+        }
+
+        h2 {
+            color: #0ff; /* Azul claro */
+            background: linear-gradient(45deg, #00ff00, #0ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        h3 {
+            color: #ff4500; /* Naranja brillante */
+            background: linear-gradient(45deg, #ff4500, #ff9f00);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         footer {
@@ -39,9 +65,10 @@
             cursor: pointer;
             font-size: 18px;
             border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s;
+            margin-top: 30px; /* Separado del contenido */
+            transition: background-color 0.3s, box-shadow 0.3s;
             text-decoration: none;
+            display: inline-block;
         }
 
         .btn-regresar:hover {
@@ -49,15 +76,34 @@
             color: black;
         }
 
+        .btn-regresar:active {
+            background-color: #00BFFF; /* Color azul cuando se presiona */
+            box-shadow: 0 0 15px 5px #00BFFF; /* Efecto de resplandor azul */
+            transform: scale(0.98); /* Hace que el botón se haga un poco más pequeño al presionar */
+        }
+
         /* Contenedor Principal */
         .contenido {
             text-align: center;
             margin: 20px;
             padding-bottom: 100px;
-            background: url('halo_background.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(135deg, #0b0b0b, #1c1c1c, #121212); /* Degradado Halo */
+            background-size: 200% 200%;
+            animation: gradientAnimation 5s ease infinite;
             padding: 50px 20px;
             border-radius: 15px;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .comunidad-container {
@@ -66,6 +112,7 @@
             gap: 20px;
             justify-items: center;
             margin-top: 40px;
+            padding: 0 20px;
         }
 
         .comunidad-item {
@@ -78,6 +125,12 @@
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            margin-top: 2cm;
         }
 
         .comunidad-item:hover {
@@ -86,36 +139,40 @@
         }
 
         .comunidad-item h3 {
-            color: #ffd700;
+            color: #ff9f00;
+            margin-bottom: 15px;
         }
 
         .comunidad-item p {
             font-size: 14px;
+            margin-bottom: 15px;
         }
 
-        /* Estilo para enlaces */
         .comunidad-item a {
             color: #ffd700;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
+            display: block;
+            margin: 10px 0;
         }
 
         .comunidad-item a:hover {
-            color: #66fcf1;
+            color: #0ff;
         }
+
+        .comunidad-item a:active {
+            color: #ff4500;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- MENÚ MEJORADO (Sin enlaces a otras páginas) -->
     <header>
-        <h1 style="text-align: center; padding: 20px; background-color: #121212;">
-            🚀🔥 HALO UNIVERSE 🔥🚀
-        </h1>
+        <h1>🚀🔥 HALO UNIVERSE 🔥🚀</h1>
     </header>
 
-    <!-- SECCIÓN DE COMUNIDAD -->
     <main class="contenido">
         <h2>Comunidad Halo Universe</h2>
         <p>Únete a la comunidad de fanáticos de Halo y mantente conectado con las últimas novedades, discusiones, y eventos del universo Halo.</p>
@@ -130,21 +187,19 @@
             <div class="comunidad-item">
                 <h3>Redes Sociales</h3>
                 <p>Sigue a Halo en sus redes sociales para mantenerte al día con las últimas noticias y eventos.</p>
-                <a href="https://www.twitter.com/Halo" target="_blank">Twitter</a><br>
+                <a href="https://www.twitter.com/Halo" target="_blank">Twitter</a>
                 <a href="https://www.instagram.com/halo" target="_blank">Instagram</a>
             </div>
             <div class="comunidad-item">
                 <h3>Eventos y Torneos</h3>
                 <p>Participa en eventos y torneos organizados por la comunidad Halo. ¡Compite con otros fanáticos de todo el mundo!</p>
-              <a href="https://halo.fandom.com/es/wiki/Categor%C3%ADa:Foro" target="_blank">Ver Eventos y Torneos</a>
+                <a href="https://halo.fandom.com/es/wiki/Categor%C3%ADa:Foro" target="_blank">Ver Eventos y Torneos</a>
             </div>
         </div>
 
-        <!-- Botón para regresar al inicio -->
         <a href="index.html" class="btn-regresar">Regresar al Inicio</a>
     </main>
 
-    <!-- PIE DE PÁGINA -->
     <footer>
         <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
     </footer>
