@@ -2,98 +2,169 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Halo Universe</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
-            background-color: #000;
+            background-color: #121212;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            overflow-x: hidden;
         }
+
+        h1, h2, h3 {
+            color: #ffd700;
+            text-shadow: 2px 2px 5px #000;
+        }
+
         header {
             background-color: #1b1b1b;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s; /* Animación de entrada */
         }
-        h1, h2, h3 {
-            color: #ffd700;
-        }
+
         .container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
+            margin: 40px auto;
+            padding: 40px;
             background-color: #222;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            animation: slideUp 1s forwards 1s; /* Animación deslizante */
         }
+
         form {
             display: flex;
             flex-direction: column;
         }
+
         label {
             margin-top: 10px;
             font-weight: bold;
+            font-size: 16px;
         }
+
         input, textarea, select {
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            margin-top: 5px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #444;
+            margin-top: 10px;
             background-color: #333;
             color: white;
+            font-size: 16px;
         }
+
         button {
-            background-color: #006400;
+            background: linear-gradient(45deg, #006400, #00bfff); /* Gradiente de color */
             color: white;
-            padding: 10px;
+            padding: 14px;
             margin-top: 20px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
+            font-size: 18px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4); /* Sombra sutil */
         }
+
         button:hover {
-            background-color: #ffd700;
-            color: black;
+            background: linear-gradient(45deg, #00bfff, #006400); /* Cambio de gradiente al pasar el mouse */
+            transform: scale(1.05); /* Efecto de aumento */
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.6); /* Sombra más intensa al pasar mouse */
         }
+
+        button:active {
+            background: #00bfff; /* Azul cuando se presiona */
+            box-shadow: 0 0 25px 5px rgba(0, 191, 255, 0.6); /* Resplandor fuerte al presionar */
+            transform: scale(0.98); /* Efecto de presionar */
+        }
+
         .btn-regresar {
-            background-color: #444;
+            background: linear-gradient(45deg, #444, #1e1e1e); /* Gradiente sutil para el botón */
             color: white;
-            padding: 10px 20px;
+            padding: 14px 24px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             display: block;
-            margin: 20px auto;
+            margin: 40px auto;
             text-align: center;
-            border-radius: 5px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); /* Sombra sutil */
         }
+
         .btn-regresar:hover {
-            background-color: #ffd700;
-            color: black;
+            background: linear-gradient(45deg, #1e1e1e, #444); /* Cambio de gradiente al pasar mouse */
+            color: #ffd700; /* Cambio de color al pasar el mouse */
+            transform: scale(1.05); /* Efecto de aumento */
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4); /* Sombra más intensa */
         }
-        footer {
-            background-color: #1b1b1b;
-            padding: 10px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            color: #66fcf1;
+
+        .btn-regresar:active {
+            background: #00bfff; /* Azul al presionar */
+            box-shadow: 0 0 25px 5px rgba(0, 191, 255, 0.6); /* Resplandor azul al presionar */
+            transform: scale(0.98); /* Efecto de presionar */
         }
+
         .contact-info {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 2s; /* Animación de desvanecimiento */
         }
+
         .contact-info a {
             color: #ffd700;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
         }
+
         .contact-info a:hover {
             text-decoration: underline;
+            color: #00bfff;
+        }
+
+        footer {
+            background-color: #1b1b1b;
+            padding: 20px;
+            text-align: center;
+            color: #66fcf1;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -101,38 +172,38 @@
     <header>
         <h1>📧 Contacto - Halo Universe 🚀</h1>
     </header>
-    
+
     <div class="container">
         <h2>Envíanos un mensaje</h2>
         <form action="enviar.php" method="post">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
-            
+
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required>
-            
+
             <label for="asunto">Asunto:</label>
             <select id="asunto" name="asunto">
                 <option value="soporte">Soporte Técnico</option>
                 <option value="sugerencias">Sugerencias</option>
                 <option value="otros">Otros</option>
             </select>
-            
+
             <label for="mensaje">Mensaje:</label>
             <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-            
+
             <button type="submit">Enviar Mensaje</button>
         </form>
+
+        <button class="btn-regresar" onclick="window.location.href='index.html';">Regresar al Menú</button>
     </div>
-    
+
     <div class="contact-info">
         <h3>Otras formas de contacto:</h3>
         <p>📧 Email: <a href="mailto:contacto@halouniverse.com">contacto@halouniverse.com</a></p>
         <p>🌐 Sitio web oficial: <a href="https://halo.fandom.com/es/wiki/Categor%C3%ADa:Foro" target="_blank">Foro de Halo</a></p>
     </div>
-    
-    <button class="btn-regresar" onclick="window.location.href='index.html';">Regresar al Menú</button>
-    
+
     <footer>
         <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
     </footer>
