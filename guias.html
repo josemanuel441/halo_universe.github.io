@@ -5,91 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía para Principiantes - Halo Universe</title>
     <style>
+        /* Estilos Generales */
         body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #000000 0%, #141414 100%);
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        h1, h2, h3 {
-            color: #ffd700; /* Dorado tipo Halo */
+
+        /* Encabezado */
+        h1 {
+            text-align: center;
+            color: #ffd700;
+            font-size: 4rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 30px;
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: glow 1.5s infinite alternate;
         }
+
+        /* Animación de resplandor */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 60px rgba(0, 255, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.5);
+            }
+        }
+
+        /* Estilo de los Encabezados */
+        h2, h3 {
+            text-align: center;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Fondo del contenido */
+        .contenido {
+            width: 80%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .contenido:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 255, 255, 0.4);
+        }
+
+        /* Estilos para los botones */
+        .btn-regresar {
+            background: linear-gradient(45deg, #00ff00, #008000);
+            color: white;
+            padding: 20px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.4);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-regresar:hover {
+            background: linear-gradient(45deg, #ffd700, #ff6347);
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Listas */
+        ul {
+            list-style-type: square;
+            padding-left: 40px;
+            font-size: 1.1em;
+            margin: 20px 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            line-height: 1.8;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        ul li:hover {
+            color: #00c6ff;
+        }
+
+        /* Imágenes */
+        img {
+            max-width: 100%;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 30px rgba(255, 255, 255, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 60px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Estilo de Footer */
         footer {
-            background-color: #1b1b1b;
-            padding: 10px;
+            background: #1b1b1b;
             color: #66fcf1;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2em;
             position: relative;
             bottom: 0;
             width: 100%;
-            text-align: center;
+            box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.2);
         }
-        .btn-regresar {
-            background-color: #006400;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-            display: block;
-            margin: 20px auto; /* Centra el botón */
+
+        footer a {
+            color: #66fcf1;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
-        .btn-regresar:hover {
-            background-color: #ffd700;
-            color: black;
+
+        footer a:hover {
+            color: #ffd700;
         }
-        .contenido {
-            text-align: center;
-            margin: 20px;
-            padding-bottom: 100px; /* Asegura que haya espacio suficiente al final */
-        }
-        ul {
-            text-align: left;
-            padding-left: 40px;
-        }
-        img {
-            max-width: 100%; /* Asegura que la imagen no se salga de su contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
-            margin-top: 20px;
-            border-radius: 10px;
-        }
+
+        /* Responsividad */
         @media screen and (max-width: 768px) {
             .contenido {
-                margin: 10px;
+                width: 90%;
+                padding: 20px;
             }
             h1 {
-                font-size: 1.5em;
+                font-size: 2.5em;
             }
             h2 {
-                font-size: 1.2em;
+                font-size: 1.5em;
             }
             .btn-regresar {
-                font-size: 14px;
-                padding: 8px 16px;
+                font-size: 16px;
+                padding: 15px 30px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ MEJORADO (Sin enlaces a otras páginas) -->
+    <!-- MENÚ MEJORADO -->
     <header>
-        <h1 style="text-align: center; padding: 20px; background-color: black;">
-            🚀🔥 HALO UNIVERSE 🔥🚀
-        </h1>
+        <h1>🚀🔥 HALO UNIVERSE 🔥🚀</h1>
     </header>
 
     <!-- SECCIÓN DE GUÍA PARA PRINCIPIANTES -->
     <main class="contenido">
         <h2>Guía para Principiantes - Halo Universe</h2>
-        <p>¡Bienvenido a la Guía para Principiantes de Halo! Aquí aprenderás lo básico para iniciarte en este universo épico de ciencia ficción.</p>
+        <p>¡Bienvenido a la Guía para Principiantes de Halo! Aquí aprenderás lo básico para iniciarte en este universo épico de ciencia ficción. Conoce al Jefe Maestro, descubre las mecánicas de combate y prepárate para unirte a la lucha por la humanidad.</p>
         
         <h3>1. Conoce al Jefe Maestro</h3>
         <p>El Jefe Maestro es el protagonista principal de la saga Halo. Es un supersoldado conocido como Spartan, cuya misión es proteger a la humanidad de amenazas alienígenas como el Covenant y los Flood.</p>
 
-        <!-- Imagen para el Jefe Maestro -->
         <img src="jefe_maestro.jpg" alt="Jefe Maestro">
 
         <h3>2. Entender el Combate</h3>
@@ -113,7 +200,7 @@
             <li><strong>Usa el sigilo:</strong> A veces, pasar desapercibido puede ser más beneficioso que ir directamente al ataque.</li>
         </ul>
 
-        <!-- Botón para regresar al inicio -->
+        <!-- Botón de Regresar -->
         <button class="btn-regresar" onclick="window.location.href='index.html';">Regresar al Inicio</button>
     </main>
 
@@ -125,4 +212,3 @@
 
 </body>
 </html>
-
