@@ -3,136 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia de Halo</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Historia de los Juegos de Halo</title>
+
     <style>
+    /* 🎨 FONDO Y TIPOGRAFÍA GENERAL */
+    body {
+        background: linear-gradient(135deg, #111, #333);
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        line-height: 1.8;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 🌟 ENCABEZADOS */
+    h1, h2, h3 {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #00ffff;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        margin: 30px 0 10px;
+    }
+
+    /* 🖱️ ENLACES */
+    a:link {
+        color: #00ffff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    a:visited {
+        color: #9999ff;
+    }
+    a:hover {
+        color: #ffd700;
+        text-decoration: underline;
+        transform: scale(1.05);
+    }
+    a:active {
+        color: #ff0000;
+    }
+
+    /* 🧱 SECCIÓN DE CONTENIDO */
+    .contenido {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    /* 🧍 TITULOS DE JUEGO */
+    .titulo-juego {
+        color: #66fcf1;
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+        font-size: 1.5em;
+        transition: color 0.3s;
+    }
+    .titulo-juego:hover {
+        color: #ffd700;
+    }
+
+    /* 📷 IMÁGENES */
+    img {
+        max-width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s;
+    }
+    img:hover {
+        transform: scale(1.05);
+    }
+
+    /* 📋 DATOS DE JUEGOS */
+    .datos {
+        background-color: #222;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        border: 1px solid #444;
+    }
+    .datos p {
+        margin: 10px 0;
+        font-size: 1.1em;
+    }
+
+    /* 🧾 LISTAS */
+    ul {
+        list-style-type: square;
+        list-style-position: inside;
+        padding-left: 20px;
+    }
+    ol {
+        list-style-type: upper-roman;
+        padding-left: 20px;
+    }
+
+    /* 📊 TABLAS */
+    table {
+        width: 100%;
+        margin: 30px 0;
+        border-collapse: collapse;
+        background-color: #1a1a1a;
+        color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    }
+    caption {
+        color: #00ffff;
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+    th, td {
+        border: 1px solid #444;
+        padding: 10px;
+        text-align: center;
+    }
+    th {
+        background-color: #1f1f1f;
+        color: #00ffff;
+    }
+    tr:nth-child(even) {
+        background-color: #2a2a2a;
+    }
+    tr:nth-child(odd) {
+        background-color: #1d1d1d;
+    }
+
+    /* 📩 FORMULARIOS */
+    form {
+        width: 90%;
+        margin: 30px auto;
+    }
+    form div {
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #00ffff;
+    }
+    input, textarea, select {
+        width: 100%;
+        padding: 12px;
+        background-color: #222;
+        color: white;
+        border: 1px solid #444;
+        border-radius: 8px;
+        font-size: 1em;
+    }
+    input:focus, textarea:focus, select:focus {
+        background-color: #333;
+        border-color: #66fcf1;
+        outline: 2px solid #66fcf1;
+    }
+
+    /* 🔘 BOTONES */
+    .btn-regresar {
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        display: block;
+        margin: 40px auto;
+        box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-regresar:hover {
+        background: linear-gradient(45deg, #00ffff, #ff00ff);
+        transform: scale(1.05);
+        box-shadow: 0 5px 30px rgba(0, 255, 255, 0.5);
+    }
+
+    /* 📍 PIE DE PÁGINA */
+    footer {
+        background-color: #222;
+        color: #66fcf1;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        margin-top: 40px;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    /* 📱 ADAPTABILIDAD */
+    @media (max-width: 768px) {
         body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
+            font-size: 14px;
         }
-        h1, h2, h3 {
-            color: #ffd700; /* Dorado tipo Halo */
+
+        .contenido {
+            width: 95%;
         }
-        footer {
-            background-color: #1b1b1b;
-            padding: 10px;
-            color: #66fcf1;
-        }
+
         .btn-regresar {
-            background-color: #ffd700;
-            color: black;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            display: block;
-            margin: 20px auto;
-            font-weight: bold;
+            padding: 12px 25px;
+            font-size: 16px;
         }
-        .btn-regresar:hover {
-            background-color: #66fcf1;
+
+        h1 {
+            font-size: 2.5em;
         }
-        .img-container {
-            text-align: center;
-            padding: 20px;
+
+        h2, h3 {
+            font-size: 1.2em;
         }
-        .img-container img {
-            max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
-            max-height: 400px; /* Limita la altura máxima de la imagen */
-        }
-        section {
-            margin: 20px;
-        }
+    }
     </style>
+
 </head>
 <body>
 
-    <!-- SECCIÓN DE HISTORIA -->
-    <main>
-        <h2 style="text-align: center; color: #ffd700;">Historia de Halo</h2>
-        <p style="text-align: center;">
-            🌌 La saga Halo es una de las más icónicas en el mundo de los videojuegos. A continuación, te contamos su historia, desde sus primeros juegos hasta los más recientes. 🌌
-        </p>
+    <header>
+        <h1>🚀🔥 HALO UNIVERSE 🔥🚀</h1>
+    </header>
 
-        <!-- Halo: Combat Evolved -->
-        <section>
-            <h3>1. Halo: Combat Evolved (2001)</h3>
-            <p>
-                <strong>Halo: Combat Evolved</strong> es el primer juego de la saga y el que marcó el inicio de todo el universo de Halo. El juego sigue al <strong>Jefe Maestro (Master Chief)</strong>, un super soldado conocido como Spartano, que debe salvar a la humanidad de una peligrosa alianza alienígena llamada los <strong>Covenant</strong>. Durante una batalla, el Jefe Maestro y su inteligencia artificial compañera, <strong>Cortana</strong>, descubren una misteriosa estructura conocida como el "Halo", un anillo gigante con un propósito oscuro. El juego es famoso por su revolucionario multijugador y por ser el inicio de una saga que definiría la industria de los videojuegos.
-            </p>
-            <div class="img-container">
-                <img src="halo_ce.jpg" alt="Imagen de Halo: Combat Evolved">
+    <main class="contenido">
+        <h2>Historia de los Juegos de Halo</h2>
+        <p>La saga de Halo ha sido una de las más influyentes en la historia de los videojuegos. A continuación, te presentamos los títulos más importantes de la saga, junto con sus fechas de lanzamiento, desarrolladores y curiosidades.</p>
+
+        <!-- JUEGO 1 -->
+        <div class="juego">
+            <h3 class="titulo-juego">🎮 Halo Wars (2531)</h3>
+            <p><strong>Halo Wars</strong> es un juego de estrategia en tiempo real ambientado en el universo de Halo...</p>
+            <img src="halo_wars.jpg" alt="Imagen de Halo Wars">
+            <div class="datos">
+                <p><strong>Fecha de lanzamiento:</strong> 26 de febrero de 2009</p>
+                <p><strong>Desarrollador:</strong> Ensemble Studios</p>
+                <p><strong>Plataformas:</strong> Xbox 360, PC</p>
+                <p><strong>Curiosidad:</strong> Fue el primer juego de Halo en adoptar el formato de estrategia en tiempo real.</p>
             </div>
-        </section>
-
-        <!-- Halo 2 -->
-        <section>
-            <h3>2. Halo 2 (2004)</h3>
-            <p>
-                En <strong>Halo 2</strong>, la historia se expande a medida que los Covenant se enfrentan a los humanos en una guerra a gran escala. El Jefe Maestro se enfrenta a nuevas amenazas y a nuevos enemigos. Esta vez, los Covenant tienen un líder diferente, el <strong>Profeta de la Verdad</strong>, que tiene un plan más siniestro para la humanidad. Además, se introduce el <strong>Arbiter</strong>, un líder de los Elites, que es exiliado por su fracaso en la lucha contra los humanos. A lo largo del juego, el Jefe Maestro y el Arbiter deben colaborar para detener los planes de los Covenant y evitar una catástrofe universal. Halo 2 también fue revolucionario por su modo multijugador en línea.
-            </p>
-            <div class="img-container">
-                <img src="halo_2.jpg" alt="Imagen de Halo 2">
+        </div>
+		<!-- JUEGO 2 -->
+        <div class="juego">
+            <h3 class="titulo-juego">🎮 Halo: Combat Evolved (2001)</h3>
+            <p><strong>Halo: Combat Evolved</strong> es el primer juego de la saga y el que marcó el inicio de todo el universo de Halo...</p>
+            <img src="halo_ce.jpg" alt="Imagen de Halo: Combat Evolved">
+            <div class="datos">
+                <p><strong>Fecha de lanzamiento:</strong> 15 de noviembre de 2001</p>
+                <p><strong>Desarrollador:</strong> Bungie</p>
+                <p><strong>Plataformas:</strong> Xbox, PC</p>
+                <p><strong>Curiosidad:</strong> Fue el título que definió la franquicia Halo y revolucionó los shooters en consola.</p>
             </div>
-        </section>
-
-        <!-- Halo 3 -->
-        <section>
-            <h3>3. Halo 3 (2007)</h3>
-            <p>
-                En <strong>Halo 3</strong>, la guerra entre los humanos y los Covenant llega a su punto culminante. El Jefe Maestro y sus aliados deben detener a los Covenant, que están a punto de activar un dispositivo capaz de destruir toda la vida en la galaxia. Mientras tanto, los humanos descubren secretos aún más oscuros sobre los orígenes de los anillos Halo. Este juego cierra la trilogía original de Halo, y el Jefe Maestro enfrenta la amenaza más grande de todas, la del <strong>Flood</strong>, una raza alienígena parasitaria. En el final de este juego, el Jefe Maestro se enfrenta a una difícil decisión, y la saga toma un giro que dejaría muchas preguntas abiertas para futuros juegos.
-            </p>
-            <div class="img-container">
-                <img src="halo_3.jpg" alt="Imagen de Halo 3">
+        </div>
+ <!-- JUEGO 3 -->
+        <div class="juego">
+            <h3 class="titulo-juego">🎮 Halo 2 (2004)</h3>
+            <p><strong>Halo 2</strong> es la secuela que expandió el universo de Halo, con más acción y la introducción de nuevos personajes...</p>
+            <img src="halo_2.jpg" alt="Imagen de Halo 2">
+            <div class="datos">
+                <p><strong>Fecha de lanzamiento:</strong> 9 de noviembre de 2004</p>
+                <p><strong>Desarrollador:</strong> Bungie</p>
+                <p><strong>Plataformas:</strong> Xbox</p>
+                <p><strong>Curiosidad:</strong> Introdujo el multijugador en línea en la saga.</p>
             </div>
-        </section>
-
-        <!-- Halo 4 -->
-        <section>
-            <h3>4. Halo 4 (2012)</h3>
-            <p>
-                <strong>Halo 4</strong> marcó el regreso del Jefe Maestro, pero con una nueva amenaza. En este juego, el Jefe Maestro y Cortana enfrentan a una nueva raza alienígena llamada los <strong>Prometeos</strong>, que están relacionados con una antigua raza de tecnología avanzada llamada los Forerunners. Cortana, la IA que ha estado al lado del Jefe Maestro durante toda la saga, comienza a mostrar signos de "rampancy", un deterioro mental en las IA. La historia se centra en cómo el Jefe Maestro enfrenta tanto a los nuevos enemigos como a la inminente pérdida de su compañera Cortana, un conflicto emocional que le da una nueva dimensión al personaje.
-            </p>
-            <div class="img-container">
-                <img src="halo_4.jpg" alt="Imagen de Halo 4">
+        </div>
+		  <!-- JUEGO 4 -->
+        <div class="juego">
+            <h3 class="titulo-juego">🎮 Halo 3 (2007)</h3>
+            <p><strong>Halo 3</strong> concluye la trilogía original de Halo y ofrece una experiencia épica de guerra en el espacio...</p>
+            <img src="halo_3.jpg" alt="Imagen de Halo 3">
+            <div class="datos">
+                <p><strong>Fecha de lanzamiento:</strong> 25 de septiembre de 2007</p>
+                <p><strong>Desarrollador:</strong> Bungie</p>
+                <p><strong>Plataformas:</strong> Xbox 360</p>
+                <p><strong>Curiosidad:</strong> El final de la trilogía original de Master Chief y su lucha contra el Covenant y los Flood.</p>
             </div>
-        </section>
+        </div>
 
-        <!-- Halo 5: Guardians -->
-        <section>
-            <h3>5. Halo 5: Guardians (2015)</h3>
-            <p>
-                En <strong>Halo 5: Guardians</strong>, el Jefe Maestro está desaparecido, y el foco de la historia se traslada a un nuevo personaje, <strong>Spartan Locke</strong>, quien lidera un equipo para encontrar al Jefe Maestro. Cortana, que parecía haber desaparecido en el juego anterior, regresa con un objetivo aún más grande: tomar el control de la galaxia y poner a las IA como las nuevas líderes del universo. La historia se desarrolla a través de batallas intensas y nuevas alianzas. En este juego, los jugadores experimentan un conflicto entre el Jefe Maestro y Cortana, lo que plantea serias preguntas sobre el futuro del universo de Halo.
-            </p>
-            <div class="img-container">
-                <img src="halo_5.jpg" alt="Imagen de Halo 5: Guardians">
+        <!-- JUEGO 5 -->
+        <div class="juego">
+            <h3 class="titulo-juego">🎮 Halo Wars 2 (2017)</h3>
+            <p><strong>Halo Wars 2</strong> es la secuela de Halo Wars, continuando la historia de los enfrentamientos con la UNSC...</p>
+            <img src="halo_wars_2.jpg" alt="Imagen de Halo Wars 2">
+            <div class="datos">
+                <p><strong>Fecha de lanzamiento:</strong> 21 de febrero de 2017</p>
+                <p><strong>Desarrollador:</strong> 343 Industries, Creative Assembly</p>
+                <p><strong>Plataformas:</strong> Xbox One, PC</p>
+                <p><strong>Curiosidad:</strong> Mejorado con nuevas mecánicas y gráficos mejorados para una experiencia más envolvente.</p>
             </div>
-        </section>
+        </div>
 
-        <!-- Halo Infinite -->
-        <section>
-            <h3>6. Halo Infinite (2021)</h3>
-            <p>
-                <strong>Halo Infinite</strong> es el último juego de la saga principal hasta la fecha. El Jefe Maestro regresa para enfrentar una nueva amenaza conocida como los <strong>Banished</strong>, una facción alienígena que se apodera de un nuevo anillo Halo. La historia explora más a fondo la relación entre el Jefe Maestro y Cortana, mientras el Jefe Maestro lucha para salvar a la humanidad y evitar la activación de los anillos Halo, que podrían destruir toda la vida en la galaxia. Además, Halo Infinite presenta un mundo abierto y una jugabilidad renovada, manteniendo la esencia de la saga.
-            </p>
-            <div class="img-container">
-                <img src="halo_infinite.jpg" alt="Imagen de Halo Infinite">
+        <!-- JUEGO 6 -->
+        <div class="juego">
+            <h3 class="titulo-juego">🎮 Halo: Reach (2010)</h3>
+            <p><strong>Halo: Reach</strong> narra los eventos previos a Halo: Combat Evolved, siendo la última entrega de Bungie en la saga...</p>
+            <img src="halo_reach.jpg" alt="Imagen de Halo Reach">
+            <div class="datos">
+                <p><strong>Fecha de lanzamiento:</strong> 14 de septiembre de 2010</p>
+                <p><strong>Desarrollador:</strong> Bungie</p>
+                <p><strong>Plataformas:</strong> Xbox 360, PC</p>
+                <p><strong>Curiosidad:</strong> Se centra en la caída del planeta Reach, un evento clave en la guerra contra el Covenant.</p>
             </div>
-        </section>
+        </div>
 
-        <!-- BOTÓN PARA REGRESAR A LA PÁGINA PRINCIPAL -->
-        <a href="index.html">
-            <button class="btn-regresar">🔙 Regresar a la Página Principal</button>
-        </a>
+        <!-- JUEGO 7 -->
+        <div class="juego">
+            <h3 class="titulo-juego">🎮 Halo 4 (2012)</h3>
+            <p><strong>Halo 4</strong> marca el comienzo de una nueva trilogía con el regreso de Master Chief...</p>
+            <img src="halo_4.jpg" alt="Imagen de Halo 4">
+            <div class="datos">
+                <p><strong>Fecha de lanzamiento:</strong> 6 de noviembre de 2012</p>
+                <p><strong>Desarrollador:</strong> 343 Industries</p>
+                <p><strong>Plataformas:</strong> Xbox 360, Xbox One, PC</p>
+                <p><strong>Curiosidad:</strong> Introdujo una nueva historia con el regreso de Cortana y nuevos enemigos como los Forerunners.</p>
+            </div>
+        </div>
+
+        <!-- JUEGO 8 -->
+        <div class="juego">
+            <h3 class="titulo-juego">🎮 Halo 5: Guardians (2015)</h3>
+            <p><strong>Halo 5: Guardians</strong> continúa la historia de Halo 4, profundizando en la relación entre Master Chief y su IA, Cortana...</p>
+            <img src="halo_5.jpg" alt="Imagen de Halo 5 Guardians">
+            <div class="datos">
+                <p><strong>Fecha de lanzamiento:</strong> 27 de octubre de 2015</p>
+                <p><strong>Desarrollador:</strong> 343 Industries</p>
+                <p><strong>Plataformas:</strong> Xbox One</p>
+                <p><strong>Curiosidad:</strong> El multijugador en línea se centró en la cooperación y el trabajo en equipo.</p>
+            </div>
+        </div>
+
+
+        <!-- Botón de regresar a inicio -->
+        <a href="index.html"><button class="btn-regresar">Regresar al inicio</button></a>
     </main>
 
-    <!-- PIE DE PÁGINA -->
     <footer>
-        <p style="text-align: center;">&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
+        <p>© 2025 Halo Universe. Todos los derechos reservados.</p>
     </footer>
 
 </body>
 </html>
+
+
 
