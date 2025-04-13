@@ -7,32 +7,141 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
         body {
-            background-color: black;
+            background-color: #121212;
             color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 100px; /* Espacio para que el contenido no quede tapado por el footer */
         }
+
         h1 {
             color: #ffd700;
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-top: 40px;
+            text-align: center;
         }
+
+        p {
+            color: #b0b0b0;
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
         #map {
             height: 500px;
             width: 80%;
+            max-width: 800px;
             margin: auto;
-            border: 2px solid #ffd700;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            animation: mapFadeIn 1s ease-out;
+            margin-bottom: 40px;
         }
+
+        @keyframes mapFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         .back-button {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
+            margin-bottom: 60px; /* Espacio para no tapar con el footer */
+            padding: 12px 25px;
             background-color: #006400;
             color: white;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+            border: 2px solid #ffd700;
         }
+
         .back-button:hover {
             background-color: #66fcf1;
+            color: #121212;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 191, 255, 0.7);
+        }
+
+        .back-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 3px 10px rgba(0, 191, 255, 0.5);
+        }
+
+        footer {
+            background-color: #1b1b1b;
+            color: #66fcf1;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px;
+            z-index: 10;
+        }
+
+        .leaflet-popup-content {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #1b1b1b;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .leaflet-popup-tip {
+            background-color: #ffd700;
+        }
+
+        .leaflet-container {
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* RESPONSIVE para pantallas pequeñas */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 26px;
+                margin-top: 25px;
+            }
+
+            p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+
+            #map {
+                height: 350px;
+                width: 90%;
+            }
+
+            .back-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            footer {
+                font-size: 12px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -45,15 +154,17 @@
 
     <a href="index.html" class="back-button">🏠 Regresar a Inicio</a>
 
+    <footer>
+        <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
+    </footer>
+
     <script>
         var map = L.map('map').setView([21.8853, -102.2916], 12);
 
-        // Agregar capa de OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Sucursales temáticas de Halo Universe
         var sucursales = [
             { lat: 21.9278, lng: -102.296, nombre: "Halo Universe - Base Central" },
             { lat: 21.8579, lng: -102.303, nombre: "Halo Universe - Sucursal Reach" },
@@ -70,6 +181,3 @@
 
 </body>
 </html>
-
-
-
