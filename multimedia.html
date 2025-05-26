@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,129 +6,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Multimedia - Halo Universe</title>
   <style>
-    /* ============ VARIABLES DE COLOR ============ */
+    /* Variables de color */
     :root {
       --fondo: #0a0a0a;
       --fondo-secundario: #1e1e1e;
       --texto: #ffffff;
       --dorado: #ffd700;
       --hover: #66fcf1;
-      --sombra-dorado: rgba(255, 215, 0, 0.5);
+      --sombra-dorado: rgba(255,215,0,0.5);
     }
 
-    /* === MODO OSCURO AUTOMÁTICO === */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --fondo: #0a0a0a;
-        --fondo-secundario: #1e1e1e;
-        --texto: #ffffff;
-      }
-    }
-
-    @media (prefers-color-scheme: light) {
-      :root {
-        --fondo: #f8f8f8;
-        --fondo-secundario: #ffffff;
-        --texto: #000000;
-      }
-    }
-
-    /* ============ ESTILOS GLOBALES ============ */
     body {
       margin: 0;
       background: linear-gradient(145deg, var(--fondo), var(--fondo-secundario));
       color: var(--texto);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
-      animation: fadeInBody 1s ease-out;
-    }
-
-    @keyframes fadeInBody {
-      from {
-        opacity: 0;
-        transform: scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+      font-family: 'Segoe UI', sans-serif;
     }
 
     h1, h2 {
-      color: var(--dorado);
       text-align: center;
-      text-shadow: 0 0 10px var(--sombra-dorado);
       margin-top: 30px;
-      animation: fadeInUp 1.2s ease-out;
+    }
+
+    h1 {
+      color: var(--dorado);
+      text-shadow: 0 0 10px var(--sombra-dorado);
     }
 
     h2 {
       color: #cccccc;
-      font-weight: normal;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 20px;
     }
 
-    /* ============ BOTÓN ============ */
-    .back-button {
-      display: block;
-      width: max-content;
-      margin: 50px auto 60px;
-      padding: 14px 30px;
-      background-color: transparent;
-      color: var(--dorado);
-      text-align: center;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      border: 2px solid var(--dorado);
-      box-shadow: 0 0 12px var(--sombra-dorado);
-      transition: all 0.3s ease-in-out;
-      animation: pulseGlow 2s infinite alternate;
+    .controls select, .controls button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background: var(--fondo-secundario);
+      color: var(--texto);
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 10px var(--sombra-dorado);
-      }
-      100% {
-        box-shadow: 0 0 20px var(--dorado);
-      }
+    .controls select:hover, .controls button:hover {
+      background: var(--hover);
+      color: #000;
     }
 
-    .back-button:hover {
-      background: var(--dorado);
-      color: var(--fondo);
-      transform: translateY(-4px);
-    }
-
-    /* ============ GALERÍA ============ */
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
       padding: 0 20px;
-      margin: 30px auto;
-      max-width: 1200px;
-      animation: fadeInBody 1.5s ease-out;
+      max-width: 1400px;
+      margin: 20px auto;
     }
 
     .gallery img {
-      width: 100%;
+      max-width: 100%;
+      height: auto;
+      width: auto;
+      max-height: 320px;
       border-radius: 12px;
       border: 2px solid var(--dorado);
       box-shadow: 0 0 12px var(--sombra-dorado);
       transition: transform 0.3s, box-shadow 0.3s;
+      object-fit: contain;
     }
 
     .gallery img:hover {
@@ -135,103 +88,168 @@
       box-shadow: 0 0 20px var(--dorado);
     }
 
-    /* ============ VIDEOS ============ */
     .videos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-      animation: fadeInBody 1.7s ease-out;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+      max-width: 1400px;
+      margin: 20px auto;
     }
 
     .videos iframe {
       width: 100%;
-      height: 220px;
-      border-radius: 12px;
+      height: 320px;
+      border-radius: 8px;
       border: 2px solid var(--dorado);
-      box-shadow: 0 0 12px var(--sombra-dorado);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 10px var(--sombra-dorado);
     }
 
-    .videos iframe:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px var(--dorado);
+    /* Ocultar secciones según filtro */
+    body.filter-image .videos,
+    body.filter-gif .videos {
+      display: none;
+    }
+
+    body.filter-video .gallery {
+      display: none;
+    }
+
+    .back-button {
+      display: block;
+      margin: 40px auto;
+      padding: 12px 24px;
+      border: 2px solid var(--dorado);
+      color: var(--dorado);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .back-button:hover {
+      background: var(--dorado);
+      color: #000;
     }
 
     footer {
       text-align: center;
-      color: #888;
-      font-size: 14px;
       padding: 20px;
       background: #111;
-      border-top: 1px solid #333;
+      color: #888;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
 
-    /* ============ RESPONSIVE ============ */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 24px;
-      }
-
-      h2 {
-        font-size: 16px;
-        padding: 0 10px;
-      }
-
       .videos iframe {
         height: 200px;
       }
+    }
 
-      .back-button {
-        padding: 12px 20px;
-        font-size: 14px;
-      }
+    /* Indicador visual */
+    .indicator {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--hover);
     }
   </style>
 </head>
 <body>
-
-  <!-- TÍTULO -->
   <header>
-    <h1> Multimedia de Halo Universe</h1>
+    <h1>Multimedia de Halo Universe</h1>
+    <div class="controls">
+      <select id="mediaFilter">
+        <option value="all">Mostrar todo</option>
+        <option value="image">Solo Imágenes</option>
+        <option value="gif">Solo GIFs</option>
+        <option value="video">Solo Videos</option>
+      </select>
+      <button id="shuffleBtn">Barajar</button>
+    </div>
+    <div class="indicator" id="indicator">Filtro actual: Mostrar todo</div>
   </header>
-
   <main>
-    <h2>¡Explora imágenes y videos legendarios del universo Halo!</h2>
-
-    <!-- Galería -->
-    <div class="gallery">
-      <img src="halo1.jpg" alt="Imagen de Halo 1" />
-      <img src="halo2.jpg" alt="Imagen de Halo 2" />
-      <img src="halo3.jpg" alt="Imagen de Halo 3" />
-      <img src="halo4.jpg" alt="Imagen de Halo 4" />
-      <img src="halo1.gif" alt="GIF de Halo 1" />
-      <img src="halo2.gif" alt="GIF de Halo 2" />
-      <img src="halo3.gif" alt="GIF de Halo 3" />
-      <img src="halo4.gif" alt="GIF de Halo 4" />
-    </div>
-
-    <!-- Videos -->
-    <div class="videos">
-      <iframe src="https://www.youtube.com/embed/xViNwdpoORA" title="Video de Halo 1" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/yBmg1RBnH1M" title="Video de Halo 2" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/uMU0ouR6NFw" title="Video de Halo 3" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/155EC_WG9Vk" title="Video de Halo 4" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/SeOOwKr_6eI" title="Video de Halo 5" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/crT8ITB44_U" title="Video de Halo 6" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/ReRsMc-SIlQ" title="Video de Halo 7" allowfullscreen></iframe>
-    </div>
-
-    <!-- Botón de regreso -->
-    <a href="index.html" class="back-button">🏠 Regresar a Inicio</a>
+    <h2>¡Explora contenido del universo Halo!</h2>
+    <div class="gallery" id="gallery"></div>
+    <div class="videos" id="videos"></div>
+    <a href="index.html" class="back-button" onclick="return confirm('¿Deseas regresar al inicio?');">🏠 Regresar a Inicio</a>
   </main>
+  <noscript>
+    <p style="text-align:center; color:red;">Esta página requiere JavaScript</p>
+  </noscript>
+  <footer>&copy; 2025 Halo Universe</footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
-  </footer>
+  <script>
+    var mediaItems = [
+      { type: 'image', src: 'halo1.jpg', alt: 'Halo 1' },
+      { type: 'image', src: 'halo2.jpg', alt: 'Halo 2' },
+      { type: 'gif', src: 'halo1.gif', alt: 'Halo 1 GIF' },
+      { type: 'gif', src: 'halo2.gif', alt: 'Halo 2 GIF' },
+      { type: 'video', src: 'https://www.youtube.com/embed/xViNwdpoORA', alt: 'Video Halo 1' },
+      { type: 'video', src: 'https://www.youtube.com/embed/yBmg1RBnH1M', alt: 'Video Halo 2' },
+      { type: 'video', src: 'https://www.youtube.com/embed/uMU0ouR6NFw', alt: 'Video Halo 3' },
+      { type: 'video', src: 'https://www.youtube.com/embed/155EC_WG9Vk', alt: 'Video Halo 4' },
+      { type: 'video', src: 'https://www.youtube.com/embed/SeOOwKr_6eI', alt: 'Video Halo 5' },
+      { type: 'video', src: 'https://www.youtube.com/embed/crT8ITB44_U', alt: 'Video Halo 6' }
+    ];
+    var shuffleOn = false;
 
+    function renderList(list) {
+      var gallery = document.getElementById('gallery');
+      var videos = document.getElementById('videos');
+      gallery.innerHTML = '';
+      videos.innerHTML = '';
+      list.forEach(function(item) {
+        if (item.type === 'video') {
+          var iframe = document.createElement('iframe');
+          iframe.src = item.src;
+          iframe.title = item.alt;
+          iframe.allow = 'fullscreen';
+          videos.appendChild(iframe);
+        } else {
+          var img = document.createElement('img');
+          img.src = item.src;
+          img.alt = item.alt;
+          gallery.appendChild(img);
+        }
+      });
+    }
+
+    function applyFilter() {
+      var filter = document.getElementById('mediaFilter').value;
+      var indicator = document.getElementById('indicator');
+      document.body.classList.remove('filter-image', 'filter-gif', 'filter-video');
+      if (filter !== 'all') document.body.classList.add('filter-' + filter);
+      var filtered = mediaItems.filter(function(item) {
+        return filter === 'all' || item.type === filter;
+      });
+      if (shuffleOn) shuffleArray(filtered);
+      renderList(filtered);
+      indicator.textContent = 'Filtro actual: ' + document.getElementById('mediaFilter').selectedOptions[0].text;
+    }
+
+    function shuffleArray(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderList(mediaItems);
+      document.getElementById('mediaFilter').addEventListener('change', applyFilter);
+      document.getElementById('shuffleBtn').addEventListener('click', function() {
+        shuffleOn = !shuffleOn;
+        applyFilter();
+      });
+    });
+  </script>
 </body>
 </html>
+
