@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terminal SPARTAN - UNSC Infinity</title>
+
+  <!-- Enlace a CSS externo -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Enlace a JavaScript externo -->
+  <script type="text/javascript" src="spartan-terminal.js" defer></script>
+
+  <style>
+    body {
+      background: url('fondo-terminal.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.85);
+      text-align: center;
+      padding: 20px;
+      border-bottom: 3px solid #00ffcc;
+    }
+
+    h1 {
+      font-size: 26px;
+      text-shadow: 0 0 8px #00ffcc;
+    }
+
+    .terminal {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      width: 90%;
+      max-width: 800px;
+      margin: 30px auto;
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ffcc;
+    }
+
+    button {
+      background-color: #002b2b;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+      padding: 10px 20px;
+      font-family: 'Courier New', monospace;
+      margin: 8px 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00ffcc;
+      color: black;
+    }
+
+    input {
+      background-color: black;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+      padding: 8px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .output {
+      margin-top: 10px;
+      padding: 15px;
+      background-color: black;
+      border-left: 3px solid #00ffcc;
+      font-size: 14px;
+      min-height: 60px;
+    }
+
+    footer {
+      text-align: center;
+      color: #00ffcc;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.85);
+      border-top: 3px solid #00ffcc;
+    }
+
+    noscript {
+      color: red;
+      text-align: center;
+      font-weight: bold;
+      background-color: black;
+      padding: 10px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    ?? Esta terminal requiere JavaScript para funcionar. Activa JS en tu navegador para continuar.
+  </noscript>
+
+  <header>
+    <h1>??? TERMINAL DE MISIONES SPARTAN - UNSC INFINITY</h1>
+    <p>Interfaz asistida por IA: CORTANA 2.0 | Nivel de acceso: CLASE 3</p>
+  </header>
+
+  <section class="terminal">
+    <h2>?? Decodificacion de Nombre Spartan</h2>
+    <input type="text" id="nombreJugador" placeholder="Ejemplo: S-117">
+    <button onclick="decodificarSpartan()">Iniciar protocolo de identificacion</button>
+    <div id="outputNombre" class="output"></div>
+
+    <h2>?? Evaluacion de Combate</h2>
+    <button onclick="evaluarCombate()">Iniciar analisis balistico</button>
+    <div id="outputCombate" class="output"></div>
+
+    <h2>?? Clasificacion de Nivel</h2>
+    <button onclick="clasificarSpartan()">Clasificar soldado por edad</button>
+    <div id="outputClasificacion" class="output"></div>
+
+    <h2>?? Arsenal Tactico</h2>
+    <button onclick="verArsenal()">Mostrar inventario de armas</button>
+    <div id="outputArsenal" class="output"></div>
+
+    <h2>?? Validacion de Protocolo UNSC</h2>
+    <input type="text" id="numeroDato" placeholder="Introduce n¨²mero de protocolo (ej. 117)">
+    <button onclick="validarProtocolo()">Validar protocolo</button>
+    <div id="outputValidacion" class="output"></div>
+  </section>
+
+  <footer>
+  <a href="index.html"><button class="btn-regresar">Regresar al inicio</button></a>
+    Proyecto SPARTAN Terminal &copy; 2559 | UNSC Archives ??
+  </footer>
+</body>
+</html>
