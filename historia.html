@@ -1,352 +1,236 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia de los Juegos de Halo</title>
-
-    <style>
-    /* 🎨 FONDO Y TIPOGRAFÍA GENERAL */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Historia de Halo</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <style>
     body {
-        background: linear-gradient(135deg, #111, #333);
-        color: #fff;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 16px;
-        line-height: 1.8;
-        margin: 0;
-        padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
     }
+    h2 {
+      color: #ffd700;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      margin: 30px 0 10px;
+    }
+    h3 {
+      color: #66fcf1;
+      font-family: 'Orbitron', sans-serif;
+    }
+    section {
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #111;
+      border-left: 5px solid #ffd700;
+      border-radius: 10px;
+      max-width: 900px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    p {
+      text-align: justify;
+      line-height: 1.6;
+    }
+ .img-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .img-container img {
+            max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
+            max-height: 400px; /* Limita la altura máxima de la imagen */
+        }
 
-    /* 🌟 ENCABEZADOS */
-    h1, h2, h3 {
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #00ffff;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-        margin: 30px 0 10px;
-    }
-
-    /* 🖱️ ENLACES */
-    a:link {
-        color: #00ffff;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s;
-    }
-    a:visited {
-        color: #9999ff;
-    }
-    a:hover {
-        color: #ffd700;
-        text-decoration: underline;
-        transform: scale(1.05);
-    }
-    a:active {
-        color: #ff0000;
-    }
-
-    /* 🧱 SECCIÓN DE CONTENIDO */
-    .contenido {
-        width: 90%;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.7);
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-    }
-
-    /* 🧍 TITULOS DE JUEGO */
-    .titulo-juego {
-        color: #66fcf1;
-        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
-        font-size: 1.5em;
-        transition: color 0.3s;
-    }
-    .titulo-juego:hover {
-        color: #ffd700;
-    }
-
-    /* 📷 IMÁGENES */
-    img {
-        max-width: 100%;
-        border-radius: 15px;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        transition: transform 0.3s;
-    }
-    img:hover {
-        transform: scale(1.05);
-    }
-
-    /* 📋 DATOS DE JUEGOS */
-    .datos {
-        background-color: #222;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 40px;
-        border: 1px solid #444;
-    }
-    .datos p {
-        margin: 10px 0;
-        font-size: 1.1em;
-    }
-
-    /* 🧾 LISTAS */
-    ul {
-        list-style-type: square;
-        list-style-position: inside;
-        padding-left: 20px;
-    }
-    ol {
-        list-style-type: upper-roman;
-        padding-left: 20px;
-    }
-
-    /* 📊 TABLAS */
-    table {
-        width: 100%;
-        margin: 30px 0;
-        border-collapse: collapse;
-        background-color: #1a1a1a;
-        color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-    }
-    caption {
-        color: #00ffff;
-        font-weight: bold;
-        font-size: 1.5em;
-        margin-bottom: 10px;
-    }
-    th, td {
-        border: 1px solid #444;
-        padding: 10px;
-        text-align: center;
-    }
-    th {
-        background-color: #1f1f1f;
-        color: #00ffff;
-    }
-    tr:nth-child(even) {
-        background-color: #2a2a2a;
-    }
-    tr:nth-child(odd) {
-        background-color: #1d1d1d;
-    }
-
-    /* 📩 FORMULARIOS */
-    form {
-        width: 90%;
-        margin: 30px auto;
-    }
-    form div {
-        margin-bottom: 15px;
-    }
-    label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-        font-size: 1.2em;
-        color: #00ffff;
-    }
-    input, textarea, select {
-        width: 100%;
-        padding: 12px;
-        background-color: #222;
-        color: white;
-        border: 1px solid #444;
-        border-radius: 8px;
-        font-size: 1em;
-    }
-    input:focus, textarea:focus, select:focus {
-        background-color: #333;
-        border-color: #66fcf1;
-        outline: 2px solid #66fcf1;
-    }
-
-    /* 🔘 BOTONES */
     .btn-regresar {
-        background: linear-gradient(45deg, #00c6ff, #0072ff);
-        color: white;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 50px;
-        font-size: 18px;
-        font-weight: bold;
-        cursor: pointer;
-        display: block;
-        margin: 40px auto;
-        box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #ffd700;
+      color: #000;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      display: block;
+      margin: 40px auto 20px;
+      transition: background-color 0.3s ease, transform 0.2s;
     }
     .btn-regresar:hover {
-        background: linear-gradient(45deg, #00ffff, #ff00ff);
-        transform: scale(1.05);
-        box-shadow: 0 5px 30px rgba(0, 255, 255, 0.5);
+      background-color: #66fcf1;
+      transform: scale(1.05);
     }
-
-    /* 📍 PIE DE PÁGINA */
     footer {
-        background-color: #222;
-        color: #66fcf1;
-        padding: 20px;
-        text-align: center;
-        font-size: 14px;
-        margin-top: 40px;
+      background-color: #1b1b1b;
+      padding: 15px;
+      color: #66fcf1;
+      text-align: center;
+      font-size: 14px;
     }
 
-    footer p {
-        margin: 0;
+    /* Línea del tiempo */
+    .timeline {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      background-color: #222;
+      padding: 10px 0;
+      justify-content: center;
+      scroll-snap-type: x mandatory;
+    }
+    .timeline a {
+      color: #ffd700;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 10px;
+      border-bottom: 2px solid transparent;
+      font-family: 'Orbitron', sans-serif;
+      scroll-snap-align: start;
+    }
+    .timeline a:hover {
+      border-bottom: 2px solid #66fcf1;
     }
 
-    /* 📱 ADAPTABILIDAD */
-    @media (max-width: 768px) {
-        body {
-            font-size: 14px;
-        }
-
-        .contenido {
-            width: 95%;
-        }
-
-        .btn-regresar {
-            padding: 12px 25px;
-            font-size: 16px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-        }
-
-        h2, h3 {
-            font-size: 1.2em;
-        }
+    /* Botón de audio */
+    .audio-control {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 1000;
+      background: #ffd700;
+      color: #000;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ffd70088;
     }
-    </style>
-
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>🚀🔥 HALO UNIVERSE 🔥🚀</h1>
-    </header>
+  <!-- Botón de música -->
+  <button class="audio-control" onclick="toggleAudio()">🎵 Música</button>
+  <audio id="haloMusic" loop>
+    <source src="halo-theme.mp3" type="audio/mpeg" />
+    Tu navegador no soporta audio.
+  </audio>
 
-    <main class="contenido">
-        <h2>Historia de los Juegos de Halo</h2>
-        <p>La saga de Halo ha sido una de las más influyentes en la historia de los videojuegos. A continuación, te presentamos los títulos más importantes de la saga, junto con sus fechas de lanzamiento, desarrolladores y curiosidades.</p>
+  <!-- Línea del tiempo -->
+  <nav class="timeline">
+    <a href="#halo1">Halo CE</a>
+    <a href="#halo2">Halo 2</a>
+    <a href="#halo3">Halo 3</a>
+    <a href="#halo4">Halo 4</a>
+    <a href="#halo5">Halo 5</a>
+    <a href="#infinite">Infinite</a>
+  </nav>
 
-        <!-- JUEGO 1 -->
-        <div class="juego">
-            <h3 class="titulo-juego">🎮 Halo Wars (2531)</h3>
-            <p><strong>Halo Wars</strong> es un juego de estrategia en tiempo real ambientado en el universo de Halo...</p>
-            <img src="halo_wars.jpg" alt="Imagen de Halo Wars">
-            <div class="datos">
-                <p><strong>Fecha de lanzamiento:</strong> 26 de febrero de 2009</p>
-                <p><strong>Desarrollador:</strong> Ensemble Studios</p>
-                <p><strong>Plataformas:</strong> Xbox 360, PC</p>
-                <p><strong>Curiosidad:</strong> Fue el primer juego de Halo en adoptar el formato de estrategia en tiempo real.</p>
-            </div>
-        </div>
-		<!-- JUEGO 2 -->
-        <div class="juego">
-            <h3 class="titulo-juego">🎮 Halo: Combat Evolved (2001)</h3>
-            <p><strong>Halo: Combat Evolved</strong> es el primer juego de la saga y el que marcó el inicio de todo el universo de Halo...</p>
-            <img src="halo_ce.jpg" alt="Imagen de Halo: Combat Evolved">
-            <div class="datos">
-                <p><strong>Fecha de lanzamiento:</strong> 15 de noviembre de 2001</p>
-                <p><strong>Desarrollador:</strong> Bungie</p>
-                <p><strong>Plataformas:</strong> Xbox, PC</p>
-                <p><strong>Curiosidad:</strong> Fue el título que definió la franquicia Halo y revolucionó los shooters en consola.</p>
-            </div>
-        </div>
- <!-- JUEGO 3 -->
-        <div class="juego">
-            <h3 class="titulo-juego">🎮 Halo 2 (2004)</h3>
-            <p><strong>Halo 2</strong> es la secuela que expandió el universo de Halo, con más acción y la introducción de nuevos personajes...</p>
-            <img src="halo_2.jpg" alt="Imagen de Halo 2">
-            <div class="datos">
-                <p><strong>Fecha de lanzamiento:</strong> 9 de noviembre de 2004</p>
-                <p><strong>Desarrollador:</strong> Bungie</p>
-                <p><strong>Plataformas:</strong> Xbox</p>
-                <p><strong>Curiosidad:</strong> Introdujo el multijugador en línea en la saga.</p>
-            </div>
-        </div>
-		  <!-- JUEGO 4 -->
-        <div class="juego">
-            <h3 class="titulo-juego">🎮 Halo 3 (2007)</h3>
-            <p><strong>Halo 3</strong> concluye la trilogía original de Halo y ofrece una experiencia épica de guerra en el espacio...</p>
-            <img src="halo_3.jpg" alt="Imagen de Halo 3">
-            <div class="datos">
-                <p><strong>Fecha de lanzamiento:</strong> 25 de septiembre de 2007</p>
-                <p><strong>Desarrollador:</strong> Bungie</p>
-                <p><strong>Plataformas:</strong> Xbox 360</p>
-                <p><strong>Curiosidad:</strong> El final de la trilogía original de Master Chief y su lucha contra el Covenant y los Flood.</p>
-            </div>
-        </div>
+  <main>
+    <h2>Historia de Halo</h2>
+    <p style="text-align: center;">
+      🌌 La saga Halo es una de las más icónicas en el mundo de los videojuegos. Aquí te contamos su historia, desde los primeros juegos hasta los más recientes. 🌌
+    </p>
 
-        <!-- JUEGO 5 -->
-        <div class="juego">
-            <h3 class="titulo-juego">🎮 Halo Wars 2 (2017)</h3>
-            <p><strong>Halo Wars 2</strong> es la secuela de Halo Wars, continuando la historia de los enfrentamientos con la UNSC...</p>
-            <img src="halo_wars_2.jpg" alt="Imagen de Halo Wars 2">
-            <div class="datos">
-                <p><strong>Fecha de lanzamiento:</strong> 21 de febrero de 2017</p>
-                <p><strong>Desarrollador:</strong> 343 Industries, Creative Assembly</p>
-                <p><strong>Plataformas:</strong> Xbox One, PC</p>
-                <p><strong>Curiosidad:</strong> Mejorado con nuevas mecánicas y gráficos mejorados para una experiencia más envolvente.</p>
-            </div>
-        </div>
+    <section id="halo1">
+      <h3>1. Halo: Combat Evolved (2001)</h3>
+      <p>
+        <strong>Halo: Combat Evolved</strong> sigue al <strong>Jefe Maestro</strong> y <strong>Cortana</strong> mientras descubren el anillo "Halo", enfrentan a los <strong>Covenant</strong> y una amenaza más antigua: el <strong>Flood</strong>.
+      </p>
+      <div class="img-container"><img src="halo_ce.jpg" alt="Halo CE" /></div>
+    </section>
 
-        <!-- JUEGO 6 -->
-        <div class="juego">
-            <h3 class="titulo-juego">🎮 Halo: Reach (2010)</h3>
-            <p><strong>Halo: Reach</strong> narra los eventos previos a Halo: Combat Evolved, siendo la última entrega de Bungie en la saga...</p>
-            <img src="halo_reach.jpg" alt="Imagen de Halo Reach">
-            <div class="datos">
-                <p><strong>Fecha de lanzamiento:</strong> 14 de septiembre de 2010</p>
-                <p><strong>Desarrollador:</strong> Bungie</p>
-                <p><strong>Plataformas:</strong> Xbox 360, PC</p>
-                <p><strong>Curiosidad:</strong> Se centra en la caída del planeta Reach, un evento clave en la guerra contra el Covenant.</p>
-            </div>
-        </div>
+    <section id="halo2">
+      <h3>2. Halo 2 (2004)</h3>
+      <p>
+        Introduce al <strong>Arbiter</strong> y ahonda en la guerra contra los Covenant. Jefe Maestro y Arbiter deben frenar el caos provocado por los Profetas y el resurgimiento del Flood.
+      </p>
+      <div class="img-container"><img src="halo_2.jpg" alt="Halo 2" /></div>
+    </section>
 
-        <!-- JUEGO 7 -->
-        <div class="juego">
-            <h3 class="titulo-juego">🎮 Halo 4 (2012)</h3>
-            <p><strong>Halo 4</strong> marca el comienzo de una nueva trilogía con el regreso de Master Chief...</p>
-            <img src="halo_4.jpg" alt="Imagen de Halo 4">
-            <div class="datos">
-                <p><strong>Fecha de lanzamiento:</strong> 6 de noviembre de 2012</p>
-                <p><strong>Desarrollador:</strong> 343 Industries</p>
-                <p><strong>Plataformas:</strong> Xbox 360, Xbox One, PC</p>
-                <p><strong>Curiosidad:</strong> Introdujo una nueva historia con el regreso de Cortana y nuevos enemigos como los Forerunners.</p>
-            </div>
-        </div>
+    <section id="halo3">
+      <h3>3. Halo 3 (2007)</h3>
+      <p>
+        El destino de la galaxia está en juego. El Jefe y el Arbiter luchan para detener el disparo de los anillos Halo. El Flood toma fuerza y la historia culmina en una decisión heroica.
+      </p>
+      <div class="img-container"><img src="halo_3.jpg" alt="Halo 3" /></div>
+    </section>
 
-        <!-- JUEGO 8 -->
-        <div class="juego">
-            <h3 class="titulo-juego">🎮 Halo 5: Guardians (2015)</h3>
-            <p><strong>Halo 5: Guardians</strong> continúa la historia de Halo 4, profundizando en la relación entre Master Chief y su IA, Cortana...</p>
-            <img src="halo_5.jpg" alt="Imagen de Halo 5 Guardians">
-            <div class="datos">
-                <p><strong>Fecha de lanzamiento:</strong> 27 de octubre de 2015</p>
-                <p><strong>Desarrollador:</strong> 343 Industries</p>
-                <p><strong>Plataformas:</strong> Xbox One</p>
-                <p><strong>Curiosidad:</strong> El multijugador en línea se centró en la cooperación y el trabajo en equipo.</p>
-            </div>
-        </div>
+    <section id="halo4">
+      <h3>4. Halo 4 (2012)</h3>
+      <p>
+        El regreso del Jefe Maestro trae consigo la aparición de los <strong>Prometeos</strong>. Cortana se deteriora y los <strong>Forerunners</strong> resurgen como amenaza galáctica.
+      </p>
+      <div class="img-container"><img src="halo_4.jpg" alt="Halo 4" /></div>
+    </section>
 
+    <section id="halo5">
+      <h3>5. Halo 5: Guardians (2015)</h3>
+      <p>
+        El <strong>Jefe Maestro</strong> ha desaparecido. Cortana vuelve con intenciones de controlar la galaxia. Spartan Locke lo busca, y el conflicto entre antiguos aliados se intensifica.
+      </p>
+      <div class="img-container"><img src="halo_5.jpg" alt="Halo 5" /></div>
+    </section>
 
-        <!-- Botón de regresar a inicio -->
-        <a href="index.html"><button class="btn-regresar">Regresar al inicio</button></a>
-    </main>
+    <section id="infinite">
+      <h3>6. Halo Infinite (2021)</h3>
+      <p>
+        El Jefe Maestro lucha contra los <strong>Desterrados</strong> en un nuevo Halo. Con Cortana fuera del juego, una nueva IA y viejos recuerdos dan forma a la batalla por la humanidad.
+      </p>
+      <div class="img-container"><img src="halo_infinite.jpg" alt="Halo Infinite" /></div>
+    </section>
 
-    <footer>
-        <p>© 2025 Halo Universe. Todos los derechos reservados.</p>
-    </footer>
+    <a href="index.html"><button class="btn-regresar">🔙 Regresar a la Página Principal</button></a>
+  </main>
 
+  <footer>
+    <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Mostrar animaciones de entrada al hacer scroll
+    const sections = document.querySelectorAll("section");
+    const options = {
+      threshold: 0.2
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Control de audio
+    function toggleAudio() {
+      const audio = document.getElementById("haloMusic");
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
 </body>
 </html>
+
 
 
 
