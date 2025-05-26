@@ -1,214 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía para Principiantes - Halo Universe</title>
+    <meta charset="UTF-8" />
+    <title>Guía Halo para Principiantes</title>
     <style>
-        /* Estilos Generales */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Segoe+UI&display=swap');
+
         body {
-            background: radial-gradient(circle, #000000 0%, #141414 100%);
-            color: #fff;
-            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0b0c10 0%, #1f2833 100%);
+            color: #c5c6c7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            padding: 30px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Encabezado */
+        h1, h2 {
+            color: #66fcf1;
+            text-shadow: 0 0 8px #45a29e, 0 0 15px #66fcf1;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 10px;
+            user-select: none;
+        }
+
         h1 {
-            text-align: center;
-            color: #ffd700;
-            font-size: 4rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            padding: 30px;
-            background: linear-gradient(45deg, #00c6ff, #0072ff);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: glow 1.5s infinite alternate;
+            font-size: 3rem;
+            margin-bottom: 25px;
         }
 
-        /* Animación de resplandor */
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
-            }
-            100% {
-                text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 60px rgba(0, 255, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.5);
-            }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #45a29e;
+            padding-bottom: 5px;
+            width: 100%;
+            max-width: 700px;
         }
 
-        /* Estilo de los Encabezados */
-        h2, h3 {
-            text-align: center;
-            color: #ffd700;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        p, ul, label {
+            font-size: 17px;
+            line-height: 1.5;
+            max-width: 700px;
+            user-select: text;
         }
 
-        /* Fondo del contenido */
-        .contenido {
-            width: 80%;
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .contenido:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 255, 255, 0.4);
-        }
-
-        /* Estilos para los botones */
-        .btn-regresar {
-            background: linear-gradient(45deg, #00ff00, #008000);
-            color: white;
-            padding: 20px 40px;
-            font-size: 18px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin: 30px auto;
-            display: block;
-            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.4);
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .btn-regresar:hover {
-            background: linear-gradient(45deg, #ffd700, #ff6347);
-            transform: scale(1.1);
-            box-shadow: 0 15px 50px rgba(255, 255, 255, 0.4);
-        }
-
-        /* Listas */
         ul {
             list-style-type: square;
-            padding-left: 40px;
-            font-size: 1.1em;
-            margin: 20px 0;
+            margin-left: 30px;
+            margin-bottom: 20px;
+            max-width: 700px;
         }
 
-        ul li {
-            margin: 10px 0;
-            line-height: 1.8;
-            font-weight: 300;
-            transition: color 0.3s ease;
+        input, button {
+            margin: 8px 0;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(102, 252, 241, 0.5);
+            transition: all 0.3s ease;
+            outline-offset: 3px;
+            outline-color: transparent;
         }
 
-        ul li:hover {
-            color: #00c6ff;
-        }
-
-        /* Imágenes */
-        img {
-            max-width: 100%;
-            border-radius: 20px;
-            margin-top: 20px;
-            box-shadow: 0 5px 30px rgba(255, 255, 255, 0.3);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 60px rgba(0, 255, 255, 0.5);
-        }
-
-        /* Estilo de Footer */
-        footer {
-            background: #1b1b1b;
-            color: #66fcf1;
-            padding: 20px;
+        input {
+            width: 230px;
+            background: #1f2833;
+            color: #c5c6c7;
+            border: 2px solid #45a29e;
+            font-weight: 600;
             text-align: center;
-            font-size: 1.2em;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.2);
+            font-family: 'Segoe UI', sans-serif;
+        }
+        input:focus {
+            border-color: #66fcf1;
+            outline-color: #66fcf1;
+            box-shadow: 0 0 12px #66fcf1;
+            background: #0b0c10;
         }
 
-        footer a {
+        button {
+            background: #45a29e;
+            color: #0b0c10;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            box-shadow: 0 5px 15px #45a29e;
+            user-select: none;
+        }
+        button:hover {
+            background: #66fcf1;
+            color: #0b0c10;
+            box-shadow: 0 8px 25px #66fcf1;
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.98);
+            box-shadow: 0 3px 12px #66fcf1;
+        }
+
+        #resultadoNivel, #resultadoArmas, #mensajeMotivacional {
+            margin-top: 15px;
+            font-weight: 900;
+            font-size: 18px;
+            color: #45a29e;
+            text-shadow: 0 0 7px #45a29e;
+            max-width: 700px;
+        }
+
+        #btnInicio {
+            margin-top: 45px;
+            background: transparent;
+            border: 3px solid #66fcf1;
             color: #66fcf1;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
+            padding: 14px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px #66fcf1;
+        }
+        #btnInicio:hover {
+            background: #66fcf1;
+            color: #0b0c10;
+            box-shadow: 0 0 40px #66fcf1, 0 0 60px #45a29e;
+            transform: scale(1.1);
+        }
+        #btnInicio:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 10px #66fcf1;
         }
 
-        footer a:hover {
-            color: #ffd700;
-        }
-
-        /* Responsividad */
-        @media screen and (max-width: 768px) {
-            .contenido {
-                width: 90%;
-                padding: 20px;
-            }
-            h1 {
-                font-size: 2.5em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            .btn-regresar {
-                font-size: 16px;
-                padding: 15px 30px;
-            }
+        noscript p {
+            color: #ff4444;
+            font-weight: 900;
+            text-shadow: 0 0 8px #ff4444;
+            user-select: none;
+            max-width: 700px;
+            margin-top: 40px;
         }
     </style>
+    <script>
+        function calcularNivel() {
+            let horas = parseFloat(document.getElementById('horas').value);
+            if (isNaN(horas) || horas < 0) {
+                alert("Por favor ingresa un número válido de horas.");
+                return;
+            }
+            let nivel = Math.floor(horas / 5) + 1;
+            document.getElementById('resultadoNivel').innerText =
+                `¡Spartan! Con ${horas} horas jugadas, tu nivel estimado es ${nivel}.`;
+        }
+
+        function recomendarArmas() {
+            let estilo = document.getElementById('estilo').value.toLowerCase();
+            let armas = {
+                agresivo: ["Escopeta", "Rifle de Asalto", "Granadas"],
+                defensivo: ["Rifle de Batalla", "Francotirador", "Pistola de Plasma"],
+                estrategico: ["Espada de Energía", "Cañón de Combustible", "Láser Spartan"]
+            };
+
+            if (armas[estilo]) {
+                document.getElementById('resultadoArmas').innerText =
+                    `Recomendación para estilo ${estilo}: ${armas[estilo].join(", ")}.`;
+            } else {
+                document.getElementById('resultadoArmas').innerText =
+                    "Estilo no reconocido. Usa: agresivo, defensivo o estrategico.";
+            }
+        }
+
+        function motivacionSpartan() {
+            let frases = [
+                "Recuerda, Spartan: ¡Nunca retrocedas!",
+                "La victoria pertenece a los valientes.",
+                "Un disparo, una baja.",
+                "Juntos, somos imparables.",
+                "La precisión es tu mejor arma."
+            ];
+            let mensaje = frases[Math.floor(Math.random() * frases.length)];
+            document.getElementById('mensajeMotivacional').innerText = mensaje;
+        }
+    </script>
 </head>
 <body>
+    <h1>Guía Halo para Principiantes</h1>
 
-    <!-- MENÚ MEJORADO -->
-    <header>
-        <h1>🚀🔥 HALO UNIVERSE 🔥🚀</h1>
-    </header>
+    <p>Bienvenido, Spartan. Esta guía te dará los primeros pasos para sobrevivir y destacar en el campo de batalla de Halo. Prepárate para conocer consejos, estrategias y estadísticas personalizadas que te ayudarán a avanzar.</p>
 
-    <!-- SECCIÓN DE GUÍA PARA PRINCIPIANTES -->
-    <main class="contenido">
-        <h2>Guía para Principiantes - Halo Universe</h2>
-        <p>¡Bienvenido a la Guía para Principiantes de Halo! Aquí aprenderás lo básico para iniciarte en este universo épico de ciencia ficción. Conoce al Jefe Maestro, descubre las mecánicas de combate y prepárate para unirte a la lucha por la humanidad.</p>
-        
-        <h3>1. Conoce al Jefe Maestro</h3>
-        <p>El Jefe Maestro es el protagonista principal de la saga Halo. Es un supersoldado conocido como Spartan, cuya misión es proteger a la humanidad de amenazas alienígenas como el Covenant y los Flood.</p>
+    <h2>Consejos Básicos</h2>
+    <ul>
+        <li>Domina los controles antes de lanzarte al combate.</li>
+        <li>Conoce los mapas para aprovechar puntos clave.</li>
+        <li>Prueba diferentes armas para encontrar tu favorita.</li>
+        <li>Juega en equipo: la coordinación es clave.</li>
+    </ul>
 
-        <img src="jefe_maestro.jpg" alt="Jefe Maestro">
+    <h2>Calcula tu Nivel Estimado</h2>
+    <label for="horas">Horas jugadas:</label><br />
+    <input type="number" id="horas" placeholder="Ejemplo: 15" />
+    <button onclick="calcularNivel()">Calcular Nivel</button>
+    <p id="resultadoNivel"></p>
 
-        <h3>2. Entender el Combate</h3>
-        <p>Halo es un juego de disparos en primera persona (FPS) con una jugabilidad dinámica. Aquí te ofrecemos algunos consejos para sobrevivir en el combate:</p>
-        <ul>
-            <li><strong>Apunta a la cabeza:</strong> Es la forma más rápida de eliminar enemigos.</li>
-            <li><strong>Usa las coberturas:</strong> No te quedes expuesto, utiliza paredes y estructuras para protegerte.</li>
-            <li><strong>Mejores armas:</strong> Conoce bien las armas, la pistola de plasma, el rifle de asalto y el lanzacohetes son ideales para diferentes situaciones.</li>
-        </ul>
+    <h2>Recomendación de Arsenal</h2>
+    <label for="estilo">Tu estilo de juego (agresivo, defensivo, estrategico):</label><br />
+    <input type="text" id="estilo" placeholder="Ejemplo: agresivo" />
+    <button onclick="recomendarArmas()">Recomendar Armas</button>
+    <p id="resultadoArmas"></p>
 
-        <h3>3. Conociendo el Multijugador</h3>
-        <p>El multijugador de Halo es famoso por su competitividad. Aquí algunos consejos para comenzar:</p>
-        <ul>
-            <li><strong>Domina el mapa:</strong> Conoce los puntos clave de cada mapa, como el lugar de las armas más poderosas.</li>
-            <li><strong>Trabaja en equipo:</strong> El multijugador en Halo no es solo un juego individual, ¡un buen equipo puede ganar la partida!</li>
-        </ul>
+    <h2>Mensaje Motivacional Spartan</h2>
+    <button onclick="motivacionSpartan()">Obtener Mensaje</button>
+    <p id="mensajeMotivacional"></p>
 
-        <h3>4. Consejos Generales</h3>
-        <ul>
-            <li><strong>Juega la campaña:</strong> Antes de lanzarte al multijugador, es recomendable que completes la campaña para familiarizarte con la historia y las mecánicas del juego.</li>
-            <li><strong>Usa el sigilo:</strong> A veces, pasar desapercibido puede ser más beneficioso que ir directamente al ataque.</li>
-        </ul>
+    <button onclick="location.href='index.html'" id="btnInicio">Volver al Inicio</button>
 
-        <!-- Botón de Regresar -->
-        <button class="btn-regresar" onclick="window.location.href='index.html';">Regresar al Inicio</button>
-    </main>
-
-    <!-- PIE DE PÁGINA -->
-    <footer>
-        <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
-        <p>Contacto por correo: <a href="mailto:josemanuelesparzavaldez867@gmail.com">josemanuelesparzavaldez867@gmail.com</a></p>
-    </footer>
-
+    <noscript>
+        <p>⚠ Esta guía para Spartan principiantes requiere JavaScript para mostrar estadísticas y recomendaciones interactivas.</p>
+    </noscript>
 </body>
 </html>
+
+
