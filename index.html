@@ -1,184 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Halo Universe</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <!-- Enlace a archivo CSS externo -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
 
     <style>
         /* Estilos generales */
         body {
-            background-color: black; /* Fondo negro */
-            color: white; /* Color del texto */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía */
+            /* Fondo con imagen, overlay oscuro, centrado y fijo */
+            background: 
+                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('fondo.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6; /* Espaciado entre líneas */
-            font-variant: normal; /* Variante de la fuente */
-            font-size: 16px; /* Tamaño de la fuente */
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            color: #ffd700; /* Color dorado */
-            text-align: center; /* Alineación centrada */
-            text-transform: uppercase; /* Convertir a mayúsculas */
-            letter-spacing: 2px; /* Espaciado entre letras */
-            font-style: italic; /* Estilo de fuente en cursiva */
+        header, footer {
+            text-align: center;
+            padding: 20px 0;
         }
 
-        /* Estilo para la primera letra */
+        h1 {
+            color: #66fcf1;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-style: italic;
+            text-shadow: 0 0 10px #66fcf1, 0 0 20px #66fcf1;
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.8; text-shadow: 0 0 5px #66fcf1, 0 0 15px #66fcf1; }
+        }
+
+        h2, h3 {
+            color: #ffd700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
         p::first-letter {
-            font-size: 200%; /* Aumentar el tamaño */
-            font-weight: bold; /* Negrita */
-            color: #66fcf1; /* Color cyan */
-        }
-
-        /* Enlaces */
-        nav a:link {
-            color: white;
-            text-decoration: none; /* Sin subrayado */
+            font-size: 200%;
             font-weight: bold;
-            font-style: normal; /* Estilo normal */
+            color: #66fcf1;
         }
 
-        nav a:visited {
-            color: #cccccc; /* Color para enlaces visitados */
-        }
-
-        nav a:hover {
-            color: #66fcf1; /* Color al pasar el ratón */
-            text-decoration: underline; /* Subrayado al pasar el ratón */
-        }
-
-        nav a:active {
-            color: #ffd700; /* Color cuando el enlace está activo */
+        nav table {
+            width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
         }
 
         nav a {
-            padding: 10px;
             display: block;
-            background-image: url('icon.png');
-            background-repeat: no-repeat;
-            background-position: left center;
-            padding-left: 25px;
+            padding: 15px;
+            margin: 5px;
+            background: #1a1a1a;
+            color: #66fcf1;
             text-decoration: none;
-            vertical-align: middle; /* Alineación vertical */
-        }
-
-        /* Listas */
-        ul {
-            list-style-type: square; /* Estilo de viñeta cuadrada */
-            list-style-image: url('viñeta.png'); /* Imagen de viñeta */
-			  list-style: square url('viñeta.png'); /* Combinación de tipo de viñeta e imagen */
-            text-indent: 20px; /* Sangría en el texto de las listas */
-            word-spacing: 5px; /* Espaciado entre palabras */
-            white-space: nowrap; /* Evitar salto de línea */
-        }
-
-        /* Estilos para tablas */
-        table {
-            width: 100%;
-            border-collapse: collapse; /* Sin espacio entre celdas */
-            border-spacing: 0; /* Sin separación */
-            empty-cells: show; /* Mostrar celdas vacías */
-        }
-
-        caption {
-            caption-side: top;
-            color: #66fcf1; /* Color para los títulos de tabla */
-            font-weight: bold;
-        }
-
-        th, td {
-            padding: 10px;
-            border: 1px solid #ffd700;
             text-align: center;
-            background: #006400; /* Fondo de las celdas */
-        }
-
-        th {
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #333; /* Color alterno para filas */
-        }
-
-        tr:nth-child(odd) {
-            background-color: #444;
-        }
-
-        /* Formularios */
-        form {
-            padding: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
             font-weight: bold;
+            border: 2px solid #66fcf1;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #000;
         }
 
-        input[type="text"],
-        input[type="email"],
-        textarea {
+        nav a:hover {
+            background: #66fcf1;
+            color: #000;
+            box-shadow: 0 0 20px #66fcf1, 0 0 40px #66fcf1;
+            transform: scale(1.1);
+        }
+
+        .img-container img {
             width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            font: normal 16px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Propiedad font completa */
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.7);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
 
-        input:focus,
-        textarea:focus {
-            border-color: #66fcf1;
-            outline: none;
+        .img-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(102, 252, 241, 1);
         }
 
-        input[type="submit"] {
-            background-color: transparent;
-            color: #ffd700;
-            text-decoration: underline;
-            border: none;
-            cursor: pointer;
+        ul {
+            list-style: square;
+            padding-left: 20px;
+            font-size: 18px;
         }
 
-        /* Comentarios CSS3 */
-        /* Estilos para los enlaces, las listas y las tablas */
+        footer p {
+            margin: 0;
+            font-size: 14px;
+            color: #cccccc;
+        }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav a {
                 font-size: 14px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            h2 {
-                font-size: 20px;
+                padding: 10px;
             }
         }
-
-        @media (max-width: 480px) {
-            nav a {
-                font-size: 12px;
-            }
-            h1 {
-                font-size: 20px;
-            }
-            h2 {
-                font-size: 18px;
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -186,7 +121,7 @@
         <h1>🚀🔥 HALO UNIVERSE 🔥🚀</h1>
         <nav>
             <table>
-                <caption>Menú Principal</caption>
+                <caption style="color:#66fcf1; font-weight:bold;">Menú Principal</caption>
                 <tr>
                     <td><a href="index.html">🏠 Inicio</a></td>
                     <td><a href="historia.html">📜 Historia</a></td>
@@ -200,44 +135,29 @@
                 <tr>
                     <td><a href="mapa.html">🗺️ Mapa</a></td>
                     <td><a href="multimedia.html">📷 Multimedia</a></td>
+                    <td><a href="js-demo.html">⚙️ Terminal UNSC</a></td>
                 </tr>
             </table>
         </nav>
     </header>
 
-    <main>
+    <main style="text-align: center;">
         <h2>Bienvenido a Halo Universe</h2>
         <p>Explora la historia, juegos y estrategias de la legendaria saga de Halo.</p>
 
         <div class="img-container">
-            <img src="halo.jpeg" alt="Imagen de Halo" style="width: 100%; max-width: 500px;">
+            <img src="halo.jpeg" alt="Imagen de Halo" />
         </div>
 
-        <ul>
+        <ul style="text-align: left; display: inline-block; margin-top: 20px;">
             <li>Historia detallada de la saga</li>
             <li>Guías de juego</li>
             <li>Galería de imágenes y videos</li>
         </ul>
-
-        <form action="#" method="post">
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre">
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-            </div>
-            <div class="form-group">
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" rows="4"></textarea>
-            </div>
-            <input type="submit" value="Enviar">
-        </form>
     </main>
 
     <footer>
-        <p style="text-align: center;">&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
+        <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
