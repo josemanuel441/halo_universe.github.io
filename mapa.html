@@ -1,183 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mapa - Halo Universe</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <style>
-        body {
-            background-color: #121212;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 100px; /* Espacio para que el contenido no quede tapado por el footer */
-        }
-
-        h1 {
-            color: #ffd700;
-            font-size: 36px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        p {
-            color: #b0b0b0;
-            font-size: 18px;
-            margin-bottom: 30px;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        #map {
-            height: 500px;
-            width: 80%;
-            max-width: 800px;
-            margin: auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-            animation: mapFadeIn 1s ease-out;
-            margin-bottom: 40px;
-        }
-
-        @keyframes mapFadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            margin-bottom: 60px; /* Espacio para no tapar con el footer */
-            padding: 12px 25px;
-            background-color: #006400;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 10px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease-in-out;
-            border: 2px solid #ffd700;
-        }
-
-        .back-button:hover {
-            background-color: #66fcf1;
-            color: #121212;
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 191, 255, 0.7);
-        }
-
-        .back-button:active {
-            transform: translateY(2px);
-            box-shadow: 0 3px 10px rgba(0, 191, 255, 0.5);
-        }
-
-        footer {
-            background-color: #1b1b1b;
-            color: #66fcf1;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            font-size: 14px;
-            z-index: 10;
-        }
-
-        .leaflet-popup-content {
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-            color: #1b1b1b;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .leaflet-popup-tip {
-            background-color: #ffd700;
-        }
-
-        .leaflet-container {
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        /* RESPONSIVE para pantallas pequeñas */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 26px;
-                margin-top: 25px;
-            }
-
-            p {
-                font-size: 16px;
-                padding: 0 10px;
-            }
-
-            #map {
-                height: 350px;
-                width: 90%;
-            }
-
-            .back-button {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-
-            footer {
-                font-size: 12px;
-                padding: 10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Mapa - Halo Universe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    body { background-color: #121212; color: white; font-family: 'Roboto', sans-serif; margin:0; padding:0; display:flex; flex-direction:column; align-items:center; }
+    h1 { color: #ffd700; margin: 30px 0; text-align:center; text-transform:uppercase; letter-spacing:2px; }
+    #map { height: 500px; width: 90%; max-width: 900px; border-radius: 15px; box-shadow: 0 4px 15px rgba(255,255,255,0.3); }
+    .controls { margin: 15px; display:flex; gap:10px; }
+    .controls button, .controls input {
+      padding: 8px 12px; border: none; border-radius:6px; font-size:14px;
+      background: #222; color:#66fcf1; box-shadow: 0 2px 6px rgba(0,0,0,0.5); transition: background 0.3s;
+    }
+    .controls button:hover, .controls input:hover { background:#333; }
+    /* Botón flotante mejora */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 12px 18px;
+      background: rgba(102,252,241,0.9);
+      color: #121212;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(102,252,241,0.6);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 16px;
+    }
+    .back-button:hover {
+      background: #66fcf1;
+      transform: scale(1.1) rotate(-2deg);
+      box-shadow: 0 6px 18px rgba(102,252,241,0.8);
+    }
+    .back-button:active {
+      transform: scale(0.95) rotate(0deg);
+      box-shadow: 0 2px 6px rgba(102,252,241,0.4);
+    }
+    footer { background:#1b1b1b; color:#66fcf1; width:100%; text-align:center; padding:10px; position:fixed; bottom:0; }
+    @media (max-width:600px) {
+      .back-button { top:10px; left:10px; padding:10px 14px; font-size:14px; }
+    }
+  </style>
 </head>
 <body>
+  <a href="index.html" class="back-button">🏠 Inicio</a>
+  <h1>🌍 Nuestras Sucursales - Halo Universe</h1>
 
-    <h1>🌍 Nuestras Sucursales - Halo Universe</h1>
-    <p>Encuentra tu tienda más cercana y equípate con lo mejor del universo de Halo.</p>
+  <div class="controls">
+    <button id="locateBtn">Mi Ubicación</button>
+    <input type="text" id="search" placeholder="Buscar sucursal..." />
+    <button id="zoomAll">Ver Todas</button>
+  </div>
+  <div id="map"></div>
 
-    <div id="map"></div>
+  <footer>&copy; 2025 Halo Universe</footer>
 
-    <a href="index.html" class="back-button">🏠 Regresar a Inicio</a>
+  <script>
+    // Inicializar mapa
+    var map = L.map('map').setView([21.8853, -102.2916], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution:'© OpenStreetMap contributors' }).addTo(map);
 
-    <footer>
-        <p>&copy; 2025 Halo Universe - Todos los derechos reservados.</p>
-    </footer>
+    // Datos de sucursales
+    var sucursales = [
+      {lat:21.9278,lng:-102.296,nombre:'Base Central'},
+      {lat:21.8579,lng:-102.303,nombre:'Sucursal Reach'},
+      {lat:21.9452,lng:-102.319,nombre:'Tienda Infinita'},
+      {lat:21.89,lng:-102.298,nombre:'Fortaleza Spartan'},
+      {lat:21.865,lng:-102.215,nombre:'Calvillito Outpost'}
+    ];
 
-    <script>
-        var map = L.map('map').setView([21.8853, -102.2916], 12);
+    // Crear marcadores y layer group
+    var markers = L.layerGroup().addTo(map);
+    sucursales.forEach(function(s) {
+      var m = L.marker([s.lat,s.lng]).bindPopup('<strong>'+s.nombre+'</strong>');
+      markers.addLayer(m);
+    });
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+    // Zoom a todos
+    document.getElementById('zoomAll').onclick = function() {
+      map.fitBounds(markers.getBounds(),{padding:[50,50]});
+    };
 
-        var sucursales = [
-            { lat: 21.9278, lng: -102.296, nombre: "Halo Universe - Base Central" },
-            { lat: 21.8579, lng: -102.303, nombre: "Halo Universe - Sucursal Reach" },
-            { lat: 21.9452, lng: -102.319, nombre: "Halo Universe - Tienda Infinita" },
-            { lat: 21.8900, lng: -102.298, nombre: "Halo Universe - Fortaleza Spartan" },
-            { lat: 21.865, lng: -102.215, nombre: "Halo Universe - Calvillito Outpost" }
-        ];
+    // Geolocalización del usuario
+    document.getElementById('locateBtn').onclick = function() {
+      map.locate({setView:true, maxZoom:14});
+    };
+    map.on('locationfound', function(e) {
+      var userMarker = L.circle([e.latitude, e.longitude], {radius:e.accuracy/2, color:'#00f'}).addTo(map);
+      userMarker.bindPopup('¡Estás aquí!').openPopup();
+    });
+    map.on('locationerror', function() { alert('No se pudo obtener tu ubicación.'); });
 
-        sucursales.forEach(function (sucursal) {
-            var marker = L.marker([sucursal.lat, sucursal.lng]).addTo(map)
-                .bindPopup(`<strong>${sucursal.nombre}</strong><br>Encuentra los mejores productos de Halo aquí.`);
-        });
-    </script>
-
+    // Búsqueda de sucursal
+    document.getElementById('search').addEventListener('input', function() {
+      var term = this.value.toLowerCase();
+      markers.clearLayers();
+      sucursales.filter(s => s.nombre.toLowerCase().includes(term)).forEach(function(s) {
+        var m = L.marker([s.lat,s.lng]).bindPopup('<strong>'+s.nombre+'</strong>');
+        markers.addLayer(m);
+      });
+    });
+  </script>
 </body>
 </html>
+
+
+
