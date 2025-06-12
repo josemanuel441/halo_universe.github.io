@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Terminal Spartan - HALO</title>
+  <style>
+    body {
+      background-color: #0b1c1d;
+      font-family: "Consolas", monospace;
+      color: #00ffcc;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ff99;
+      text-shadow: 0 0 6px #00ffcc;
+    }
+
+    .seccion {
+      border: 2px solid #00ff99;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      background-color: rgba(0, 255, 136, 0.05);
+      max-width: 600px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 6px;
+      background: #021313;
+      color: #7fffd4;
+      border: 1px solid #00ff88;
+      border-radius: 5px;
+    }
+
+    button {
+      margin: 10px 5px 0 0;
+      padding: 10px 20px;
+      background-color: #008040;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #00b36b;
+    }
+
+    ul {
+      list-style-type: square;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 10px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px;
+      border: 1px solid #00ff88;
+      text-align: center;
+    }
+
+    th {
+      background-color: #005f3c;
+      color: #ffffff;
+    }
+
+    .mensaje {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #003c2b;
+      border-left: 5px solid #00ff88;
+      color: #7fffd4;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Terminal Spartan UNSC</h1>
+
+  <div class="seccion">
+    <h2>Gestión de Spartans</h2>
+    <form id="formSpartan">
+      <label for="id">ID del Spartan:</label>
+      <input type="text" id="id" required>
+
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" required>
+
+      <label for="rango">Rango:</label>
+      <select id="rango">
+        <option value="Soldado">Soldado</option>
+        <option value="Teniente">Teniente</option>
+        <option value="Comandante">Comandante</option>
+        <option value="Jefe Maestro">Jefe Maestro</option>
+      </select>
+
+      <label>Tipo de Unidad:</label>
+      <label><input type="radio" name="tipo" value="Infantería" checked> Infantería</label>
+      <label><input type="radio" name="tipo" value="Artillero"> Artillero</label>
+      <label><input type="radio" name="tipo" value="Asesino"> Asesino</label>
+
+      <label><input type="checkbox" id="activo"> ¿Activo en batalla?</label>
+
+      <button type="button" onclick="insertar()">Insertar</button>
+      <button type="button" onclick="modificar()">Modificar</button>
+      <button type="button" onclick="borrar()">Borrar</button>
+    </form>
+
+    <div id="mensaje" class="mensaje" style="display: none;"></div>
+    <ul id="listaSimple"></ul>
+  </div>
+
+  <div class="seccion">
+    <h2>Base de Datos Spartan</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Rango</th>
+          <th>Tipo</th>
+          <th>Activo</th>
+        </tr>
+      </thead>
+      <tbody id="tablaSpartans"></tbody>
+    </table>
+  </div>
+
+  <script>
+    let db;
+    const request = indexedDB.open("HaloUNSC", 1);
+
+    request.onupgradeneeded = function (e) {
+      const db = e.target.result;
+      db.createObjectStore("spartans", { keyPath: "id" });
+    };
+
+    request.onsuccess = function (e) {
+      db = e.target.result;
+      mostrar();
+    };
+
+    request.onerror = function () {
+      alert("Error al abrir la base de datos");
+    };
+
+    function mostrarMensaje(mensaje) {
+      const div = document.getElementById("mensaje");
+      div.textContent = mensaje;
+      div.style.display = "block";
+      setTimeout(() => div.style.display = "none", 3000);
+    }
+
+    function obtenerDatos() {
+      return {
+        id: document.getElementById("id").value,
+        nombre: document.getElementById("nombre").value,
+        rango: document.getElementById("rango").value,
+        tipo: document.querySelector('input[name="tipo"]:checked').value,
+        activo: document.getElementById("activo").checked
+      };
+    }
+
+    function insertar() {
+      const datos = obtenerDatos();
+      const tx = db.transaction("spartans", "readwrite");
+      const store = tx.objectStore("spartans");
+      const req = store.add(datos);
+
+      req.onsuccess = function () {
+        mostrarMensaje("✅ Spartan insertado correctamente.");
+        agregarLista(datos);
+        mostrar();
+        document.getElementById("formSpartan").reset();
+      };
+
+      req.onerror = function () {
+        mostrarMensaje("⚠️ Ya existe un Spartan con ese ID.");
+      };
+    }
+
+    function modificar() {
+      const datos = obtenerDatos();
+      const tx = db.transaction("spartans", "readwrite");
+      const store = tx.objectStore("spartans");
+      const req = store.get(datos.id);
+
+      req.onsuccess = function () {
+        if (!req.result) {
+          mostrarMensaje("⚠️ No se encontró un Spartan con ese ID.");
+          return;
+        }
+
+        store.put(datos).onsuccess = function () {
+          mostrarMensaje("✏️ Spartan modificado.");
+          mostrar();
+          document.getElementById("formSpartan").reset();
+        };
+      };
+    }
+
+    function borrar() {
+      const id = document.getElementById("id").value;
+      if (!id) {
+        mostrarMensaje("⚠️ Ingresa un ID para borrar.");
+        return;
+      }
+
+      const tx = db.transaction("spartans", "readwrite");
+      const store = tx.objectStore("spartans");
+      const req = store.get(id);
+
+      req.onsuccess = function () {
+        if (!req.result) {
+          mostrarMensaje("⚠️ Spartan no encontrado.");
+          return;
+        }
+
+        store.delete(id).onsuccess = function () {
+          mostrarMensaje("🗑️ Spartan eliminado.");
+          mostrar();
+          document.getElementById("formSpartan").reset();
+        };
+      };
+    }
+
+    function mostrar() {
+      const tx = db.transaction("spartans", "readonly");
+      const store = tx.objectStore("spartans");
+      const req = store.openCursor();
+      const tbody = document.getElementById("tablaSpartans");
+      tbody.innerHTML = "";
+
+      req.onsuccess = function (e) {
+        const cursor = e.target.result;
+        if (cursor) {
+          const s = cursor.value;
+          const fila = `<tr>
+            <td>${s.id}</td>
+            <td>${s.nombre}</td>
+            <td>${s.rango}</td>
+            <td>${s.tipo}</td>
+            <td>${s.activo ? "Sí" : "No"}</td>
+          </tr>`;
+          tbody.innerHTML += fila;
+          cursor.continue();
+        }
+      };
+    }
+
+    function agregarLista(spartan) {
+      const ul = document.getElementById("listaSimple");
+      const li = document.createElement("li");
+      li.textContent = `Insertado: ${spartan.nombre} (${spartan.rango}, ${spartan.tipo})`;
+      ul.appendChild(li);
+    }
+  </script>
+  <div style="text-align: center; margin-top: 40px;">
+  <button onclick="window.location.href='index.html'">⟵ Regresar al Index</button>
+</div>
+</body>
+</html>
+
